@@ -1,0 +1,55 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#mainArea{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background: darkblue;
+    padding: 20px; 
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: white;
+}
+#mainDirections {
+    text-align: center;
+    color: white;
+}
+#problemDirections {
+    text-align: center;
+}
+#problemArea{
+    background-color: lightgrey;
+    padding: 20px;
+    font-weight: bolder;
+}
+#submit{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: darkblue;
+    padding: 20px; 
+    text-align: center;
+}
+#resultText{
+    text-align: center;
+    background-color: lightgrey;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 0px;
+
+}
+th, td {
+    letter-spacing: 1em;
+    padding: 0.5em 0 0.5em 1em;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #ddd;
+}
