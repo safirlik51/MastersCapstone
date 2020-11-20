@@ -1,7 +1,3 @@
-console.log("problem test");
-console.log("TTE:  ");
-console.log(TruthToExpression);
-
 const WolframAlphaAPI = require('wolfram-alpha-api');
 const waApi = WolframAlphaAPI('GRWHG2-8TQ9WK8J4J');
 
@@ -9,9 +5,9 @@ let text = "";
 let e = '';
 let equation = "";
 let answer = "";
-var buildCompare = []
+var buildCompare = [];
 var buildCompareFinal = "";
-var resultsCompare = []
+var resultsCompare = [];
 var resultsCompareFinal = "";
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
@@ -30,8 +26,9 @@ function TruthToExpression() {
     document.getElementById("equation").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("AnswerField").hidden = false;
+    document.getElementById("resultText").hidden = true;
     buildTruth();
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ')";
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
 
@@ -40,6 +37,7 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
+    document.getElementById("resultText").hidden = true;
     document.getElementById("equation").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("AnswerField").hidden = false;
@@ -55,10 +53,16 @@ function ExpressionToCircuit() {
 
 function CircuitToTruth() {
     document.getElementById("problemDirections").innerHTML = "Test CT";
+    buildTruth();
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
+    document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
 
 function CircuitToExpression() {
+    wolfram();
     document.getElementById("problemDirections").innerHTML = "Test CE";
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
+    document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
 
 function Random() {
@@ -90,6 +94,8 @@ function Random() {
 }
 
 function buildTruth() {
+    buildCompare = [];
+    buildCompareFinal = '';
     document.getElementById("problem").innerHTML = "";
     let i, j;
     let placeholder = document.getElementById("problem");
@@ -98,7 +104,7 @@ function buildTruth() {
         placeholder.innerHTML = "<div></div>";
         return;
     }
-    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+'|!&() ]/g) != null) {
+    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+'~|!&() ]/g) != null) {
         placeholder.innerHTML = "<p>One of the characters is not allowed.</p>";
         return;
     }
@@ -137,19 +143,29 @@ function buildTruth() {
         for (j = 0; j < variables.length; j++) {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
-        string += "<td>" + solve(equation) + "</td></tr>";
+        if (buildTruth.caller.name == "ExpressionToTruth" || buildTruth.caller.name == "CircuitToTruth"){
+            solve(equation);
+            string += "<td>" + "<input type='text' id='input' name='input'></input>" + "</td></tr>";
+        }
+        else{
+            string += "<td>" + solve(equation) + "</td></tr>";
+        }
+        
+        
     }
     string = "<table align='center' id='truth'>" + string + "</table>";
     if (string.indexOf("<td></td>") == -1)
         placeholder.innerHTML = string;
     else
     placeholder.innerHTML = "<p>Invalid expression.</p>";
-
+    //e += ')';
+    console.log("LOOK HERE! " + e);
     let table = document.getElementById("truth");
     for (let i = 0,row;row = table.rows[i];i++){
         for(let j=0,col; col = row.cells[j];j++){
+            
             if (col.textContent == e){
-                col.textContent = "X";
+                col.textContent = "";
             } 
         }
     }
@@ -172,8 +188,8 @@ function buildTruth() {
                     + equation.substring(end + 1);
         }
         equation = equation.replace(/''/g, '');
-        equation = equation.replace(/0'/g, '1');
-        equation = equation.replace(/1'/g, '0');
+        equation = equation.replace(/~0/g, '1');
+        equation = equation.replace(/~1/g, '0');
         for (let i = 0; i < equation.length - 1; i++)
             if ((equation[i] == '0' || equation[i] == '1') && (equation[i + 1] == '0' || equation[i + 1] == '1'))
                 equation = equation.substring(0, i + 1) + '*' + equation.substring(i + 1, equation.length);
@@ -195,18 +211,20 @@ function buildTruth() {
 }
 
 function buildExpression(expression) {
+    //e = '(';
+    console.log("Function " + buildExpression.caller.name);
     e = '';
-    let x = Math.floor(Math.random()*5)+2;
+    let x = Math.floor(Math.random()*5)+1;
     
     for(let i=0;i<x;i++){
         console.log(x);
         let r = Math.floor(Math.random()*5);
         e += String.fromCharCode(65+r); 
-        console.log(e);
+        console.log("Expression " + e);
         console.log("Number of times "+i);
 
         if (i<x-1){
-            let y = Math.floor(Math.random()*3);
+            let y = Math.floor(Math.random()*5);
             if (y==0){
                 e += "&";
             }
@@ -214,15 +232,24 @@ function buildExpression(expression) {
                 e += "||";
             }
             if (y==2){
-                e += "'";
+                e += "~";
+            }
+            if (y==3){
+                e += "&~";
+            }
+            if (y==4){
+                e += "||~";
             }
         }
     }
+    //e += ')';
     console.log(e);
     return e;
 }
 
 function buildResults() {
+    resultsCompare = [];
+    resultsCompareFinal = '';
     let i, j;
     let placeholder = document.getElementById("answer");
     text = getResult();
@@ -230,7 +257,7 @@ function buildResults() {
         placeholder.innerHTML = "<div></div>";
         return;
     }
-    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+'|!&() ]/g) != null) {
+    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+'~|!&() ]/g) != null) {
         placeholder.innerHTML = "<p>One of the characters is not allowed.</p>";
         return;
     }
@@ -304,8 +331,8 @@ function buildResults() {
                     + equation.substring(end + 1);
         }
         equation = equation.replace(/''/g, '');
-        equation = equation.replace(/0'/g, '1');
-        equation = equation.replace(/1'/g, '0');
+        equation = equation.replace(/~0/g, '1');
+        equation = equation.replace(/~1/g, '0');
         
         for (let i = 0; i < equation.length - 1; i++)
             if ((equation[i] == '0' || equation[i] == '1') && (equation[i + 1] == '0' || equation[i + 1] == '1'))
@@ -328,24 +355,52 @@ function buildResults() {
 }
 
 function wolfram(){
+    const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x&output=json";
+    console.log(wolframURL);
+    const xhr = new XMLHttpRequest();
 
-}
+    xhr.open("POST", "http://localhost:3000/wolfram", true);
+    xhr.setRequestHeader("Content-Type", "text/strings;charset=utf-8");
+    xhr.send(wolframURL);
+
+    xhr.onreadystatechange = () => {
+        console.log("Detected a change to readyState: " + xhr.readyState);
+        console.log(xhr)
+        if (xhr.readyState == 4) {
+            console.log("The data is ready");
+            console.log("Data as received:");
+            console.log(xhr.response);
+            let data = JSON.parse(xhr.response);
+            console.log(data);
+            let parsed = JSON.parse(data.body);
+            console.log(parsed);
+        }
+    }
+}    
 
 function getResult(result){
-    answer = document.getElementById("AnswerField").value;
-    console.log("Answer " + answer);
-    return answer;
+    if (getResult.caller.name == "ExpressionToTruth" || getResult.caller.name == "CircuitToTruth"){
+        
+    }
+    else{
+        answer = document.getElementById("AnswerField").value;
+        console.log("Answer " + answer);
+        return answer;
+    }
+    
 }
 
 function checkAnswer() {
     buildResults();
-    console.log("Compare Results " + resultsCompareFinal);
-    console.log("Build Results " + buildCompareFinal)
+    console.log("Answer " + resultsCompareFinal);
+    console.log("Build " + buildCompareFinal)
     if (resultsCompareFinal==buildCompareFinal){
+        document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
     }
     else{
+        document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "red";
         document.getElementById("resultText").innerHTML = "INCORRECT..."
         document.getElementById("ShowBTN").hidden = false;

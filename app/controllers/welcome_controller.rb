@@ -3,11 +3,11 @@ class WelcomeController < ApplicationController
   end
 
   def post
-    data = request.body.read
+    data = request
     puts data
-    url = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input="
+    url = data
     conn = Faraday.new(url)
-    response = conn.post(url,data,"Content-Type" => "application/json")
+    response = conn.post(url)
     puts "Success!"
     puts response.to_json
     render json: response
