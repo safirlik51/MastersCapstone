@@ -9,6 +9,8 @@ var buildCompare = [];
 var buildCompareFinal = "";
 var resultsCompare = [];
 var resultsCompareFinal = "";
+let tableAnswer = [];
+let tableAnswerFinal = "";
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
 document.getElementById("ShowBTN").hidden = true;
@@ -22,7 +24,6 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
-    //waApi.getFull('sin x').then(console.log).catch(console.error);
     document.getElementById("equation").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("AnswerField").hidden = false;
@@ -40,11 +41,11 @@ function ExpressionToTruth() {
     document.getElementById("resultText").hidden = true;
     document.getElementById("equation").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
-    document.getElementById("AnswerField").hidden = false;
+    document.getElementById("AnswerField").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Given the expression below complete the truth table!";
     buildTruth();
     document.getElementById("equation").innerHTML = e;
-    document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
+    document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
 }
 
 function ExpressionToCircuit() {
@@ -252,7 +253,12 @@ function buildResults() {
     resultsCompareFinal = '';
     let i, j;
     let placeholder = document.getElementById("answer");
-    text = getResult();
+    if(buildResults.caller.name == "checkAnswer"){
+       text = getResult(); 
+    }
+    else{
+        text = getResultTruth();
+    }
     if (text == "") {
         placeholder.innerHTML = "<div></div>";
         return;
@@ -359,8 +365,8 @@ function wolfram(){
     console.log(wolframURL);
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "http://localhost:3000/wolfram", true);
-    xhr.setRequestHeader("Content-Type", "text/strings;charset=utf-8");
+    xhr.open("GET", "http://localhost:3000/wolfram", true);
+    xhr.setRequestHeader("Content-Type", "text/html");
     xhr.send(wolframURL);
 
     xhr.onreadystatechange = () => {
@@ -379,15 +385,20 @@ function wolfram(){
 }    
 
 function getResult(result){
-    if (getResult.caller.name == "ExpressionToTruth" || getResult.caller.name == "CircuitToTruth"){
-        
-    }
-    else{
-        answer = document.getElementById("AnswerField").value;
-        console.log("Answer " + answer);
-        return answer;
-    }
+    answer = document.getElementById("AnswerField").value;
+    console.log("Answer " + answer);
+    return answer;
     
+}
+
+function getResultTruth(result){
+    let userInput = document.querySelectorAll("#input");
+    for(i=0;i<userInput.length;i++){
+        tableAnswer.push(userInput[i].value);
+    }
+    tableAnswerFinal = tableAnswer.toString();
+    console.log("TableAnswer " + tableAnswerFinal);
+    return tableAnswerFinal;
 }
 
 function checkAnswer() {
@@ -395,6 +406,23 @@ function checkAnswer() {
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
     if (resultsCompareFinal==buildCompareFinal){
+        document.getElementById("resultText").hidden = false;
+        document.getElementById("resultText").style.backgroundColor = "green";
+        document.getElementById("resultText").innerHTML = "CORRECT!"
+    }
+    else{
+        document.getElementById("resultText").hidden = false;
+        document.getElementById("resultText").style.backgroundColor = "red";
+        document.getElementById("resultText").innerHTML = "INCORRECT..."
+        document.getElementById("ShowBTN").hidden = false;
+    }
+}
+
+function checkAnswerTruth() {
+    buildResults();
+    console.log("TableAnswer " + tableAnswerFinal);
+    console.log("Build " + buildCompareFinal)
+    if (tableAnswerFinal==buildCompareFinal){
         document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
