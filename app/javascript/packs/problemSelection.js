@@ -362,14 +362,17 @@ function buildResults() {
 }
 
 function wolfram(){
-    const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x&output=json";
-    console.log(wolframURL);
+    const toSend = {
+        sendproblem: "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x"
+      } 
+    //const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x";
+    let jsonString = JSON.stringify(toSend);
+    console.log(jsonString);
     const xhr = new XMLHttpRequest();
 
     xhr.open("POST", "http://localhost:3000/wolfram", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //xhr.setRequestHeader("Content-Type", "text/plain");
-    xhr.send(wolframURL);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(jsonString);
 
     xhr.onreadystatechange = () => {
         console.log("Detected a change to readyState: " + xhr.readyState);
