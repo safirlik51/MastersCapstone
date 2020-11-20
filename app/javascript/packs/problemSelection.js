@@ -54,6 +54,7 @@ function ExpressionToCircuit() {
 
 function CircuitToTruth() {
     document.getElementById("problemDirections").innerHTML = "Test CT";
+    wolfram();
     buildTruth();
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
@@ -365,8 +366,9 @@ function wolfram(){
     console.log(wolframURL);
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "http://localhost:3000/wolfram", true);
-    xhr.setRequestHeader("Content-Type", "text/html");
+    xhr.open("POST", "http://localhost:3000/wolfram", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhr.setRequestHeader("Content-Type", "text/plain");
     xhr.send(wolframURL);
 
     xhr.onreadystatechange = () => {
@@ -392,7 +394,7 @@ function getResult(result){
 }
 
 function getResultTruth(result){
-    let userInput = document.querySelectorAll("#input");
+    
     for(i=0;i<userInput.length;i++){
         tableAnswer.push(userInput[i].value);
     }
