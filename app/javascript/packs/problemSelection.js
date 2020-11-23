@@ -148,6 +148,7 @@ function buildTruth() {
         for (j = 0; j < variables.length; j++) {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
+        console.log(buildTruth.caller.name);
         if (buildTruth.caller.name == "ExpressionToTruth" || buildTruth.caller.name == "CircuitToTruth"){
             solve(equation);
             console.log("START");
