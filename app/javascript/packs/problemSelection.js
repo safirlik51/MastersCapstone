@@ -374,7 +374,7 @@ function wolfram(){
     const xhr = new XMLHttpRequest();
     const image = new XMLHttpRequest();
 
-    xhr.open("POST", "http://booleanpractice.herokuapp.com/wolfram", true);
+    xhr.open("POST", "https://booleanpractice.herokuapp.com/wolfram", true);
     xhr.setRequestHeader("Content-Type", "text/plain");
     xhr.send(wolframURL);
 
