@@ -377,10 +377,9 @@ function buildResults() {
 function wolfram(){
     document.getElementById("circuit").innerHTML = "Generating Circuit..."
     const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic circuit " + e + "&output=json";
-    let wolmramURI = encodeURI(wolframURL);
+    let wolframURI = encodeURI(wolframURL);
     console.log("URI " + wolframURI);
     const xhr = new XMLHttpRequest();
-    const image = new XMLHttpRequest();
 
     xhr.open("POST", "https://booleanpractice.herokuapp.com/wolfram", true);
     xhr.setRequestHeader("Content-Type", "text/plain");
