@@ -34,7 +34,7 @@ function TruthToExpression() {
 }
 
 function TruthToCircuit() {
-    document.getElementById("problemDirections").innerHTML = "Test TC";
+    document.getElementById("problemDirections").innerHTML = "Given the truth table below create the logic circuit!";
 }
 
 function ExpressionToTruth() {
@@ -49,21 +49,24 @@ function ExpressionToTruth() {
 }
 
 function ExpressionToCircuit() {
-    document.getElementById("problemDirections").innerHTML = "Test EC";
+    document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
 }
 
 function CircuitToTruth() {
-    document.getElementById("problemDirections").innerHTML = "Test CT";
     wolfram();
     buildTruth();
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
-    document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
+    document.getElementById("equation").hidden = true;
+    document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
+    document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
 }
 
 function CircuitToExpression() {
     wolfram();
-    document.getElementById("problemDirections").innerHTML = "Test CE";
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
+    buildTruth();
+    document.getElementById("equation").hidden = true;
+    document.getElementById("problem").hidden = true;
+    document.getElementById("AnswerField").hidden = false;
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
 
@@ -106,7 +109,7 @@ function buildTruth() {
         placeholder.innerHTML = "<div></div>";
         return;
     }
-    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+'~|!&() ]/g) != null) {
+    if (text.match(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01+~|&() ]/g) != null) {
         placeholder.innerHTML = "<p>One of the characters is not allowed.</p>";
         return;
     }
@@ -147,7 +150,9 @@ function buildTruth() {
         }
         if (buildTruth.caller.name == "ExpressionToTruth" || buildTruth.caller.name == "CircuitToTruth"){
             solve(equation);
-            string += "<td>" + "<input type='text' id='input' name='input'></input>" + "</td></tr>";
+            console.log("START");
+            string += "<td>" + "<input type='text' id='userInput' name='input'></input>" + "</td></tr>";
+            console.log("FINISH");
         }
         else{
             string += "<td>" + solve(equation) + "</td></tr>";
@@ -213,9 +218,10 @@ function buildTruth() {
 }
 
 function buildExpression(expression) {
-    //e = '(';
+    
     console.log("Function " + buildExpression.caller.name);
     e = '';
+    //e = '(';
     let x = Math.floor(Math.random()*5)+1;
     
     for(let i=0;i<x;i++){
@@ -384,19 +390,6 @@ function wolfram(){
                 let circuit = data.queryresult.pods[1].subpods[0].img.src;
                 document.getElementById("wolfram").src = circuit;
                 document.getElementById("circuit").innerHTML = "";
-                //image.open("POST", "http://localhost:3000/wolfram", true);
-                //image.setRequestHeader("Content-Type", "text/plain");
-                //image.send(circuit);
-                //image.onreadystatechange = () => {
-                //    console.log("Detected a change to readyState: " + image.readyState);
-                //    console.log(xhr)
-                //    if (image.readyState == 4) {
-                //        console.log("The data is ready");
-                //        console.log("Data as received (Circuit):");
-                //        console.log(image.response);
-                //    }
-                
-                //}
             }
         }
     }    
