@@ -362,17 +362,14 @@ function buildResults() {
 }
 
 function wolfram(){
-    const toSend = {
-        sendproblem: "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x"
-      } 
-    //const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x";
-    let jsonString = JSON.stringify(toSend);
-    console.log(jsonString);
+    document.getElementById("circuit").innerHTML = "Generating Circuit..."
+    const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=sin%20x&output=json";
     const xhr = new XMLHttpRequest();
+    const image = new XMLHttpRequest();
 
     xhr.open("POST", "http://localhost:3000/wolfram", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(jsonString);
+    xhr.setRequestHeader("Content-Type", "text/plain");
+    xhr.send(wolframURL);
 
     xhr.onreadystatechange = () => {
         console.log("Detected a change to readyState: " + xhr.readyState);
@@ -383,11 +380,27 @@ function wolfram(){
             console.log(xhr.response);
             let data = JSON.parse(xhr.response);
             console.log(data);
-            let parsed = JSON.parse(data.body);
-            console.log(parsed);
+            if (data.queryresult != null){
+                let circuit = data.queryresult.pods[1].subpods[0].img.src;
+                document.getElementById("wolfram").src = circuit;
+                document.getElementById("circuit").innerHTML = "";
+                //image.open("POST", "http://localhost:3000/wolfram", true);
+                //image.setRequestHeader("Content-Type", "text/plain");
+                //image.send(circuit);
+                //image.onreadystatechange = () => {
+                //    console.log("Detected a change to readyState: " + image.readyState);
+                //    console.log(xhr)
+                //    if (image.readyState == 4) {
+                //        console.log("The data is ready");
+                //        console.log("Data as received (Circuit):");
+                //        console.log(image.response);
+                //    }
+                
+                //}
+            }
         }
-    }
-}    
+    }    
+}
 
 function getResult(result){
     answer = document.getElementById("AnswerField").value;
