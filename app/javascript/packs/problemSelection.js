@@ -403,12 +403,14 @@ function wolfram(){
             console.log(xhr.response);
             let data = JSON.parse(xhr.response);
             console.log(data);
-            if (data.queryresult != null){
-                let circuit = data.queryresult.pods[1].subpods[0].img.src;
-                document.getElementById("wolfram").src = circuit;
-                document.getElementById("circuit").innerHTML = "";
+            try{
+                if (data.queryresult != null){
+                    let circuit = data.queryresult.pods[1].subpods[0].img.src;
+                    document.getElementById("wolfram").src = circuit;
+                    document.getElementById("circuit").innerHTML = "";
             }
-            else{
+            } 
+            catch{
                 document.getElementById("circuit").style.color = "red";
                 document.getElementById("circuit").innerHTML = "Error Generating Circuit Please Try Again...";
             }
