@@ -406,6 +406,10 @@ function wolfram(){
                 document.getElementById("wolfram").src = circuit;
                 document.getElementById("circuit").innerHTML = "";
             }
+            else{
+                document.getElementById("circuit").style.color = "red";
+                document.getElementById("circuit").innerHTML = "Error Generating Circuit Please Try Again...";
+            }
         }
     }    
 }
