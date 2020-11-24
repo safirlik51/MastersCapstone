@@ -274,7 +274,7 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     console.log("BUILD CALLER " + buildResults.caller.name)
-    if(buildResults.caller.name == "s"){    
+    if(buildResults.caller.name == "x"){    
         text = getResult(); 
     }
     else{
