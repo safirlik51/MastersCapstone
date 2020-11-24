@@ -61,7 +61,10 @@ function ExpressionToCircuit() {
 function CircuitToTruth() {
     buildTruth();
     wolfram();
+    document.getElementById("wolfram").hidden = false;
+    document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
+    document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
 }
@@ -69,9 +72,12 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
+    document.getElementById("wolfram").hidden = false;
+    document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
     document.getElementById("problem").hidden = true;
     document.getElementById("AnswerField").hidden = false;
+    document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
