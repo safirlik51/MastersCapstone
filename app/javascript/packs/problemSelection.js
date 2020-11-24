@@ -274,6 +274,7 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     if(buildResults.caller.name == "checkAnswer"){
+        console.log("BUILD CALLER " + buildResults.caller.name)
        text = getResult(); 
     }
     else{
@@ -417,7 +418,6 @@ function getResult(result){
 }
 
 function getResultTruth(result){
-    
     for(i=0;i<userInput.length;i++){
         tableAnswer.push(userInput[i].value);
     }
