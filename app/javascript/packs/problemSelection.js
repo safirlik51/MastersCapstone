@@ -26,6 +26,7 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
+    document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
     document.getElementById("circuit").hidden = true;
     document.getElementById("equation").hidden = true;
@@ -42,6 +43,7 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
+    document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
     document.getElementById("circuit").hidden = true;
     document.getElementById("resultText").hidden = true;
