@@ -59,16 +59,16 @@ function ExpressionToCircuit() {
 }
 
 function CircuitToTruth() {
-    wolfram();
     buildTruth();
+    wolfram();
     document.getElementById("equation").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
 }
 
 function CircuitToExpression() {
-    wolfram();
     buildTruth();
+    wolfram();
     document.getElementById("equation").hidden = true;
     document.getElementById("problem").hidden = true;
     document.getElementById("AnswerField").hidden = false;
