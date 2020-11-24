@@ -273,9 +273,9 @@ function buildResults() {
     resultsCompareFinal = '';
     let i, j;
     let placeholder = document.getElementById("answer");
-    if(buildResults.caller.name == "checkAnswer"){
-        console.log("BUILD CALLER " + buildResults.caller.name)
-       text = getResult(); 
+    console.log("BUILD CALLER " + buildResults.caller.name)
+    if(buildResults.caller.name == "checkAnswer"){    
+        text = getResult(); 
     }
     else{
         text = getResultTruth();
