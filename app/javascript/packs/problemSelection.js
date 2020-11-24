@@ -67,6 +67,7 @@ function CircuitToTruth() {
     document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
+    ocument.getElementById("resultText").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
 }
@@ -80,6 +81,7 @@ function CircuitToExpression() {
     document.getElementById("problem").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
+    ocument.getElementById("resultText").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
 }
