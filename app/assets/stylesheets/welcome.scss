@@ -74,3 +74,6 @@ th, td {
 td {
     border: 1px solid #ddd;
 }
+td:nth-child(0) {  
+    border-right: 3px;
+  }

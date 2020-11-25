@@ -151,11 +151,10 @@ function buildTruth() {
         placeholder.innerHTML = "<p>You can only have 8 variables at a time.</p>";
         return;
     }
-    //let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
-    //for (i = 0; i < variables.length; i++) {
-    //    string += "<th>" + variables[i] + "</th>";
-    //}
-    let string = "";
+    let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
+    for (i = 0; i < variables.length; i++) {
+        string += "<th>" + variables[i] + "</th>";
+    }
     string += "<tr><th>" + text + "</th></tr>";
     for (i = 0; i < Math.pow(2, variables.length); i++) {
         string += "<tr><td style=\"letter-spacing: 0; padding: initial;\">"+i.toString()+"</td>";
@@ -315,11 +314,10 @@ function buildResults() {
         placeholder.innerHTML = "<p>You can only have 8 variables at a time.</p>";
         return;
     }
-    //let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
-    //for (i = 0; i < variables.length; i++) {
-    //    string += "<th>" + variables[i] + "</th>";
-    //}
-    let string = "";
+    let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
+    for (i = 0; i < variables.length; i++) {
+        string += "<th>" + variables[i] + "</th>";
+    }
     string += "<tr><th>" + text + "</th></tr>";
     for (i = 0; i < Math.pow(2, variables.length); i++) {
         string += "<tr><td style=\"letter-spacing: 0; padding: initial;\">"+i.toString()+"</td>";
