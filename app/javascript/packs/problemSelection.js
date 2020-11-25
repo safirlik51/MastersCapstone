@@ -242,7 +242,7 @@ function buildExpression(expression) {
     
     console.log("Function " + buildExpression.caller.name);
     e = '';
-    e = '(';
+    //e = '(';
     let x = Math.floor(Math.random()*5)+1;
     
     for(let i=0;i<x;i++){
@@ -271,7 +271,7 @@ function buildExpression(expression) {
             }
         }
     }
-    e += ')';
+    //e += ')';
     console.log(e);
     return e;
 }
@@ -314,11 +314,11 @@ function buildResults() {
         placeholder.innerHTML = "<p>You can only have 8 variables at a time.</p>";
         return;
     }
-    let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
-    for (i = 0; i < variables.length; i++) {
-        string += "<th>" + variables[i] + "</th>";
-    }
-    string += "<th>" + text + "</th></tr>";
+    //let string = "<tr><th style=\"letter-spacing: 0; padding: initial;\">minterm</th>";
+    //for (i = 0; i < variables.length; i++) {
+    //    string += "<th>" + variables[i] + "</th>";
+    //}
+    string += "<tr><th>" + text + "</th></tr>";
     for (i = 0; i < Math.pow(2, variables.length); i++) {
         string += "<tr><td style=\"letter-spacing: 0; padding: initial;\">"+i.toString()+"</td>";
         let data = [];
