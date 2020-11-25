@@ -11,6 +11,7 @@ var resultsCompare = [];
 var resultsCompareFinal = "";
 let tableAnswer = [];
 let tableAnswerFinal = "";
+document.getElementById("circuitVerse").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
 document.getElementById("ShowBTN").hidden = true;
@@ -40,6 +41,7 @@ function TruthToExpression() {
 
 function TruthToCircuit() {
     document.getElementById("problemDirections").innerHTML = "Given the truth table below create the logic circuit!";
+    document.getElementById("circuitVerse").hidden = false;
 }
 
 function ExpressionToTruth() {
@@ -57,6 +59,7 @@ function ExpressionToTruth() {
 }
 
 function ExpressionToCircuit() {
+    document.getElementById("circuitVerse").hidden = false;
     document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
 }
 
