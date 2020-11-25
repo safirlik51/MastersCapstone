@@ -242,7 +242,7 @@ function buildExpression(expression) {
     
     console.log("Function " + buildExpression.caller.name);
     e = '';
-    //e = '(';
+    e = '(';
     let x = Math.floor(Math.random()*5)+1;
     
     for(let i=0;i<x;i++){
@@ -271,7 +271,7 @@ function buildExpression(expression) {
             }
         }
     }
-    //e += ')';
+    e += ')';
     console.log(e);
     return e;
 }
@@ -282,11 +282,11 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     console.log("BUILD CALLER " + buildResults.caller.name)
-    if(buildResults.caller.name == "x"){    
-        text = getResultTruth(); 
+    if(buildResults.caller.name == "S"){    
+        text = getResult(); 
     }
     else{
-        text = document.getElementById("AnswerField").value;
+        text = getResultTruth();
     }
     if (text == "") {
         placeholder.innerHTML = "<div></div>";
@@ -425,12 +425,12 @@ function wolfram(){
     }    
 }
 
-//function getResult(result){
-//    answer = document.getElementById("AnswerField").value;
-//    console.log("Answer " + answer);
-//    return answer;
-//    
-//}
+function getResult(result){
+    answer = document.getElementById("AnswerField").value;
+    console.log("Answer " + answer);
+    return answer;
+    
+}
 
 function getResultTruth(result){
     for(i=0;i<userInput.length;i++){
