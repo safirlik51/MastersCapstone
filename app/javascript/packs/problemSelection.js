@@ -282,11 +282,11 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     console.log("BUILD CALLER " + buildResults.caller.name)
-    if(buildResults.caller.name == "S"){    
-        text = getResult(); 
+    if(buildResults.caller.name == "x"){    
+        text = getResultTruth(); 
     }
     else{
-        text = getResultTruth();
+        text = document.getElementById("AnswerField").value;
     }
     if (text == "") {
         placeholder.innerHTML = "<div></div>";
@@ -425,12 +425,12 @@ function wolfram(){
     }    
 }
 
-function getResult(result){
-    answer = document.getElementById("AnswerField").value;
-    console.log("Answer " + answer);
-    return answer;
-    
-}
+//function getResult(result){
+//    answer = document.getElementById("AnswerField").value;
+//    console.log("Answer " + answer);
+//    return answer;
+//    
+//}
 
 function getResultTruth(result){
     for(i=0;i<userInput.length;i++){
