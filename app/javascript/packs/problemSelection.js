@@ -318,7 +318,7 @@ function buildResults() {
     for (i = 0; i < variables.length; i++) {
         string += "<th>" + variables[i] + "</th>";
     }
-    string += "<tr><th>" + text + "</th></tr>";
+    //string += "<tr><th>" + text + "</th></tr>";
     for (i = 0; i < Math.pow(2, variables.length); i++) {
         string += "<tr><td style=\"letter-spacing: 0; padding: initial;\">"+i.toString()+"</td>";
         let data = [];
