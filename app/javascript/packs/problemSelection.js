@@ -60,6 +60,7 @@ function ExpressionToTruth() {
 
 function ExpressionToCircuit() {
     document.getElementById("circuitVerse").hidden = false;
+    document.getElementById("circuitVerse").innerHTML = fetch("https://circuitverse.org/simulator");
     document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
 }
 
