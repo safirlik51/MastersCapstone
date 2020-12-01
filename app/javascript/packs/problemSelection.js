@@ -18,6 +18,8 @@ document.getElementById("ShowBTN").hidden = true;
 document.getElementById("answer").hidden = true;
 document.getElementById("wolfram").hidden = true;
 document.getElementById("circuit").hidden = true;
+document.getElementById("TryAgainBTN").hidden = true;
+document.getElementById("NewBTN").hidden = true;
 document.getElementById("TruthToExpressionBTN").addEventListener("click", TruthToExpression);
 document.getElementById("TruthToCircuitBTN").addEventListener("click", TruthToCircuit);
 document.getElementById("ExpressionToTruthBTN").addEventListener("click", ExpressionToTruth);
@@ -27,6 +29,7 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
+    document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
     document.getElementById("circuit").hidden = true;
@@ -37,6 +40,8 @@ function TruthToExpression() {
     buildTruth();
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
+    document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
+    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
 }
 
 function TruthToCircuit() {
@@ -45,6 +50,7 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
+    document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
     document.getElementById("circuit").hidden = true;
@@ -56,6 +62,8 @@ function ExpressionToTruth() {
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
+    document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
+    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
 }
 
 function ExpressionToCircuit() {
@@ -74,6 +82,9 @@ function CircuitToTruth() {
     ocument.getElementById("resultText").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
+    document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
+    document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
+    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
 }
 
 function CircuitToExpression() {
@@ -85,9 +96,12 @@ function CircuitToExpression() {
     document.getElementById("problem").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
-    ocument.getElementById("resultText").hidden = true;
+    document.getElementById("resultText").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
+    document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
+    document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
+    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
 }
 
 function Random() {
@@ -96,25 +110,21 @@ function Random() {
     if (problem == 1){
         TruthToExpression();
     }
-
     if (problem == 2){
-        TruthToCircuit();
+        CircuitToTruth();
     }
-
     if (problem == 3){
         ExpressionToTruth();
     }
-
     if (problem == 4){
-        ExpressionToCircuit();
+        CircuitToExpression();
     }
 
     if (problem == 5){
-        CircuitToTruth();
+        ExpressionToCircuit();
     }
-
     if (problem == 6){
-        CircuitToExpression();
+        TruthToCircuit();
     }
 }
 
@@ -359,19 +369,26 @@ function buildResults() {
     function solveResult(equation) {
         while (equation.indexOf("(") != -1) {
             let start = equation.lastIndexOf("(");
+            console.log("START " + start);
             let end = equation.indexOf(")", start);
+            console.log("END " + end);
             if (start != -1)
                 equation = equation.substring(0, start)
                     + solveResult(equation.substring(start + 1, end))
                     + equation.substring(end + 1);
+                    console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
         equation = equation.replace(/~0/g, '1');
         equation = equation.replace(/~1/g, '0');
+        equation = equation.replace(/!0/g, '1');
+        equation = equation.replace(/!1/g, '0');
         
         for (let i = 0; i < equation.length - 1; i++)
+        console.log("EQUATION LENGTH " + equation.length-1);
             if ((equation[i] == '0' || equation[i] == '1') && (equation[i + 1] == '0' || equation[i + 1] == '1'))
                 equation = equation.substring(0, i + 1) + '*' + equation.substring(i + 1, equation.length);
+                console.log("EVAL " + equation);
         try {
             let safeEval = eval;
             let answer = safeEval(equation);
@@ -420,6 +437,7 @@ function wolfram(){
             catch{
                 document.getElementById("circuit").style.color = "red";
                 document.getElementById("circuit").innerHTML = "Error Generating Circuit Please Try Again...";
+                document.getElementById("TryAgainBTN").hidden = false;
             }
         }
     }    
@@ -449,6 +467,7 @@ function checkAnswer() {
         document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
+        document.getElementById("NewBTN").hidden = false;
     }
     else{
         document.getElementById("resultText").hidden = false;
@@ -466,6 +485,7 @@ function checkAnswerTruth() {
         document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
+        document.getElementById("NewBTN").hidden = false;
     }
     else{
         document.getElementById("resultText").hidden = false;
