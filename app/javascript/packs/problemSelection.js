@@ -372,9 +372,7 @@ function buildResults() {
             let end = equation.indexOf(")", start);
             if (start != -1)
                 equation = equation.substring(0, start) + equation.substring(start + 1, end) + equation.substring(end + 1);
-                console.log("EQUATION START " + equation.substring(0,start));
-                console.log("EQUATION MIDDLE " + solveResult(equation.substring(start + 1, end)));
-                console.log("EQUATION END " + equation.substring(end + 1));
+                console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
         equation = equation.replace(/~0/g, '1');
@@ -383,7 +381,6 @@ function buildResults() {
         equation = equation.replace(/!1/g, '0');
         
         for (let i = 0; i < equation.length - 1; i++)
-        console.log("EQUATION LENGTH " + equation.length-1);
             if ((equation[i] == '0' || equation[i] == '1') && (equation[i + 1] == '0' || equation[i + 1] == '1'))
                 equation = equation.substring(0, i + 1) + '*' + equation.substring(i + 1, equation.length);
                 console.log("EVAL " + equation);
