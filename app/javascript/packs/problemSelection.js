@@ -179,7 +179,7 @@ function buildTruth() {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
         console.log(buildTruth.caller.name);
-        if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b"){
+        if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b" || buildTruth.caller.name == "y"){
             solve(equation);
             console.log("START");
             string += "<td>" + "<input type='text' id='userInput' name='input'></input>" + "</td></tr>";
