@@ -497,6 +497,7 @@ function checkAnswer() {
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
         document.getElementById("NewBTN").hidden = false;
+        document.getElementById("ShowBTN").hidden = true;
     }
     else{
         document.getElementById("resultText").hidden = false;
@@ -515,6 +516,7 @@ function checkAnswerTruth() {
         document.getElementById("resultText").style.backgroundColor = "green";
         document.getElementById("resultText").innerHTML = "CORRECT!"
         document.getElementById("NewBTN").hidden = false;
+        document.getElementById("ShowBTN").hidden = true;
     }
     else{
         document.getElementById("resultText").hidden = false;
