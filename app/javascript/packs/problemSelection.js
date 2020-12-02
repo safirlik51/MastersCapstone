@@ -226,7 +226,6 @@ function buildTruth() {
             let end = equation.indexOf(")", start);
             if (start != -1)
                 equation = equation.substring(0, start) + equation.substring(start + 1, end) + equation.substring(end + 1);
-                console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
         equation = equation.replace(/~0/g, '1');
@@ -269,7 +268,7 @@ function buildExpression(expression) {
             e += ")";
             let y = Math.floor(Math.random()*4);
             if (y==0){
-                e += "&&(";
+                e += "&(";
                 let r = Math.floor(Math.random()*5);
                 e += String.fromCharCode(65+r); 
             }
@@ -279,7 +278,7 @@ function buildExpression(expression) {
                 e += String.fromCharCode(65+r); 
             }
             if (y==2){
-                e += "&&~(";
+                e += "&~(";
                 let r = Math.floor(Math.random()*5);
                 e += String.fromCharCode(65+r); 
             }
@@ -293,13 +292,13 @@ function buildExpression(expression) {
         if (i<x-1){
             let y = Math.floor(Math.random()*4);
             if (y==0){
-                e += "&&";
+                e += "&";
             }
             if (y==1){
                 e += "||";
             }
             if (y==2){
-                e += "&&~";
+                e += "&~";
             }
             if (y==3){
                 e += "||~";
