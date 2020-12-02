@@ -82,7 +82,7 @@ function CircuitToTruth() {
     document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
-    ocument.getElementById("resultText").hidden = true;
+    document.getElementById("resultText").hidden = true;
     document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
@@ -429,9 +429,10 @@ function wolfram(){
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("circuit").style.color = "black";
     document.getElementById("circuit").innerHTML = "Generating Circuit...";
+    console.log("BEFORE URI " + e);
     const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic circuit " + e + "&output=json";
     let wolframURI = encodeURI(wolframURL);
-    console.log("URI " + wolframURI);
+    console.log("AFTER URI " + wolframURI);
     const xhr = new XMLHttpRequest();
 
     xhr.open("POST", "https://booleanpractice.herokuapp.com/wolfram", true);
