@@ -265,21 +265,43 @@ function buildExpression(expression) {
         console.log("Expression " + e);
         console.log("Number of times "+i);
 
-        if (i<x-1){
-            let y = Math.floor(Math.random()*5);
+        if (i==1 || i==3){
+            e += ")";
+            let y = Math.floor(Math.random()*4);
             if (y==0){
-                e += "&";
+                e += "&&(";
+                let r = Math.floor(Math.random()*5);
+                e += String.fromCharCode(65+r); 
+            }
+            if (y==1){
+                e += "||(";
+                let r = Math.floor(Math.random()*5);
+                e += String.fromCharCode(65+r); 
+            }
+            if (y==2){
+                e += "&&~(";
+                let r = Math.floor(Math.random()*5);
+                e += String.fromCharCode(65+r); 
+            }
+            if (y==3){
+                e += "||~(";
+                let r = Math.floor(Math.random()*5);
+                e += String.fromCharCode(65+r); 
+            }
+        }
+
+        if (i<x-1){
+            let y = Math.floor(Math.random()*4);
+            if (y==0){
+                e += "&&";
             }
             if (y==1){
                 e += "||";
             }
             if (y==2){
-                e += "~";
+                e += "&&~";
             }
             if (y==3){
-                e += "&~";
-            }
-            if (y==4){
                 e += "||~";
             }
         }
