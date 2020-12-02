@@ -69,14 +69,11 @@ h1 {
     margin-right: auto;
 }
 th{
-    padding-block: inherit;
-}
-th, td {
-    padding: 15px 15px 15px 15px;
     text-align: center;
 }
-
 td {
+    padding: 15px 15px 15px 15px;
+    text-align: center;
     border: 1px solid black;
 }
 td:nth-child(1) {  
