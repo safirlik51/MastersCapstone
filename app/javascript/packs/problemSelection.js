@@ -186,7 +186,7 @@ function buildTruth() {
         if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b" || buildTruth.caller.name == "y"){
             solve(equation);
             console.log("START");
-            string += "<td>" + "<input type='radio' id='userInputZero' name='input' value='0'></input><label for='userInputZero'>0</label>" + "<input type='radio' id='userInputOne' name='input' value='1'></input><label for='userInputOne'>1</label>" + "</td></tr>";
+            string += "<td>" + "<select id='userInput' name='unserInput' <option value='0'>0</option><option value='1'>1</option></select>" + "</td></tr>";
             console.log("FINISH");
         }
         else{
