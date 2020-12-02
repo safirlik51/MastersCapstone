@@ -402,6 +402,7 @@ function buildResults() {
 }
 
 function wolfram(){
+    document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("circuit").style.color = "black";
     document.getElementById("circuit").innerHTML = "Generating Circuit...";
     const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic circuit " + e + "&output=json";
