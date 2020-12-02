@@ -255,7 +255,7 @@ function buildExpression(expression) {
     console.log("Function " + buildExpression.caller.name);
     e = '';
     e = '(';
-    let x = Math.floor(Math.random()*5)+2;
+    let x = Math.floor(Math.random()*5)+3;
     
     for(let i=0;i<x;i++){
         console.log(x);
