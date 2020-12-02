@@ -432,6 +432,8 @@ function wolfram(){
     console.log("BEFORE URI " + e);
     const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic circuit " + e + "&output=json";
     let wolframURI = encodeURI(wolframURL);
+    wolframURI = wolframURI.replace(/\(/g, '%28');
+    wolframURI = wolframURI.replace(/\)/g, '%29');
     console.log("AFTER URI " + wolframURI);
     const xhr = new XMLHttpRequest();
 
