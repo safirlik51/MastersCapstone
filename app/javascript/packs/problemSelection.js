@@ -430,13 +430,12 @@ function wolfram(){
     document.getElementById("circuit").style.color = "black";
     document.getElementById("circuit").innerHTML = "Generating Circuit...";
     console.log("BEFORE URI " + e);
-    const wolframURL = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic+circuit+";
+    const wolframURI = "https://api.wolframalpha.com/v2/query?appid=GRWHG2-8TQ9WK8J4J&input=logic+circuit+";
     let eURI = encodeURI(e);
     eURI = eURI.replace(/\(/g, '%28');
     eURI = eURI.replace(/\)/g, '%29');
     eURI = eURI.replace(/&/g, '%26');
-    eRI = wolframURI.replace(/\|/g, '%7');
-    wolframURI += wolframURL;
+    eURI = eURI.replace(/\|/g, '%7');
     wolframURI += eURI;
     wolframURI += "&output=json";
     console.log("AFTER URI " + wolframURI);
