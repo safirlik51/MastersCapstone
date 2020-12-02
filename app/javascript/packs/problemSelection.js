@@ -46,7 +46,7 @@ function TruthToExpression() {
 
 function TruthToCircuit() {
     document.getElementById("problemDirections").innerHTML = "Given the truth table below create the logic circuit!";
-    document.getElementById("circuitVerse").hidden = false;
+    //document.getElementById("circuitVerse").hidden = false;
 }
 
 function ExpressionToTruth() {
@@ -67,7 +67,7 @@ function ExpressionToTruth() {
 }
 
 function ExpressionToCircuit() {
-    document.getElementById("circuitVerse").hidden = false;
+    //document.getElementById("circuitVerse").hidden = false;
     //document.getElementById("circuitVerse").innerHTML = fetch("https://circuitverse.org/simulator");
     document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
 }
@@ -446,6 +446,8 @@ function getResult(result){
 }
 
 function getResultTruth(result){
+    tableAnswer = [];
+    tableAnswerFinal = "";
     for(i=0;i<userInput.length;i++){
         tableAnswer.push(userInput[i].value);
     }
