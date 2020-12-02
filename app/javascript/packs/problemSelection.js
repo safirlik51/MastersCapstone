@@ -37,8 +37,9 @@ function TruthToExpression() {
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("resultText").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
     buildTruth();
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
     //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
@@ -50,6 +51,7 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
+    document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
@@ -75,6 +77,7 @@ function ExpressionToCircuit() {
 function CircuitToTruth() {
     buildTruth();
     wolfram();
+    document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
@@ -90,6 +93,7 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
+    document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
     document.getElementById("equation").hidden = true;
@@ -97,7 +101,7 @@ function CircuitToExpression() {
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("resultText").hidden = true;
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &, OR = ||, NOT = ~)";
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
@@ -182,7 +186,7 @@ function buildTruth() {
         if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b" || buildTruth.caller.name == "y"){
             solve(equation);
             console.log("START");
-            string += "<td>" + "<input type='text' id='userInput' name='input'></input>" + "</td></tr>";
+            string += "<td>" + "<input type='radio' id='userInput' name='input' value='0'></input>" + "<input type='radio' id='userInput' name='input' value='1'></input>" + "</td></tr>";
             console.log("FINISH");
         }
         else{
@@ -221,9 +225,8 @@ function buildTruth() {
             let start = equation.lastIndexOf("(");
             let end = equation.indexOf(")", start);
             if (start != -1)
-                equation = equation.substring(0, start)
-                    + solve(equation.substring(start + 1, end))
-                    + equation.substring(end + 1);
+                equation = equation.substring(0, start) + equation.substring(start + 1, end) + equation.substring(end + 1);
+                console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
         equation = equation.replace(/~0/g, '1');
@@ -252,7 +255,7 @@ function buildExpression(expression) {
     
     console.log("Function " + buildExpression.caller.name);
     e = '';
-    //e = '(';
+    e = '(';
     let x = Math.floor(Math.random()*5)+2;
     
     for(let i=0;i<x;i++){
@@ -281,7 +284,7 @@ function buildExpression(expression) {
             }
         }
     }
-    //e += ')';
+    e += ')';
     console.log(e);
     return e;
 }
