@@ -186,7 +186,7 @@ function buildTruth() {
         if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b" || buildTruth.caller.name == "y"){
             solve(equation);
             console.log("START");
-            string += "<td>" + "<input type='radio' id='userInput' name='input' value='0'></input>" + "<input type='radio' id='userInput' name='input' value='1'></input>" + "</td></tr>";
+            string += "<td>" + "<input type='radio' id='userInputZero' name='input' value='0'></input><label for='userInputZero'>0</label>" + "<input type='radio' id='userInputOne' name='input' value='1'></input><label for='userInputOne'>1</label>" + "</td></tr>";
             console.log("FINISH");
         }
         else{
@@ -453,8 +453,7 @@ function getResultTruth(result){
     tableAnswer = [];
     tableAnswerFinal = "";
     for(i=0;i<userInput.length;i++){
-        tableAnswer.push(userInput[i].value);
-    }
+        tableAnswer.push(userInput[i].value);    }
     tableAnswerFinal = tableAnswer.toString();
     console.log("TableAnswer " + tableAnswerFinal);
     return tableAnswerFinal;
