@@ -11,6 +11,7 @@ var resultsCompare = [];
 var resultsCompareFinal = "";
 let tableAnswer = [];
 let tableAnswerFinal = "";
+let match = "";
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
@@ -254,7 +255,7 @@ function buildExpression(expression) {
     let x = Math.floor(Math.random()*3)+2;
     
     for(let i=0;i<x;i++){
-        let match = "";
+        match = "";
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
@@ -267,23 +268,43 @@ function buildExpression(expression) {
             let y = Math.floor(Math.random()*4);
             if (y==0){
                 e += "&(";
-                let r = Math.floor(Math.random()*5);
-                e += String.fromCharCode(65+r); 
+                let s = Math.floor(Math.random()*5);
+                let match1 = String.fromCharCode(65+s); 
+                while (match1 = match){
+                    s = Math.floor(Math.random()*5);
+                    match1 = String.fromCharCode(65+s);
+                }
+                e += match1;
             }
             if (y==1){
                 e += "||(";
-                let r = Math.floor(Math.random()*5);
-                e += String.fromCharCode(65+r); 
+                let t = Math.floor(Math.random()*5);
+                let match2 = String.fromCharCode(65+t); 
+                while (match2 = match){
+                    t = Math.floor(Math.random()*5);
+                    match2 = String.fromCharCode(65+t);
+                }
+                e += match2; 
             }
             if (y==2){
                 e += "&~(";
-                let r = Math.floor(Math.random()*5);
-                e += String.fromCharCode(65+r); 
+                let u = Math.floor(Math.random()*5);
+                let match3 = String.fromCharCode(65+u);
+                while (match3 = match){
+                    u = Math.floor(Math.random()*5);
+                    match3 = String.fromCharCode(65+u);
+                }
+                e += match3; 
             }
             if (y==3){
                 e += "||~(";
-                let r = Math.floor(Math.random()*5);
-                e += String.fromCharCode(65+r); 
+                let v = Math.floor(Math.random()*5);
+                let match4 = String.fromCharCode(65+v); 
+                while (match4 = match){
+                    v = Math.floor(Math.random()*5);
+                    match4 = String.fromCharCode(65+v);
+                }
+                e += match4; 
             }
         }
 
