@@ -264,12 +264,14 @@ function buildExpression(expression) {
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
         matchto = String.fromCharCode(65+r);
-        do{
-            let r = Math.floor(Math.random()*5);
-            match = String.fromCharCode(65+r);
+        if (i!=0){
+           do{
+                r = Math.floor(Math.random()*5);
+                match = String.fromCharCode(65+r);
+                console.log("Match " + match);
+            }
+            while(match==matchto || match==match1 || match==match2 || match==match3 || match==match4); 
         }
-        while(match == matchto || match == match1 || match == match2 || match == match3 || match == match4);
-        console.log("match");
         e += match; 
         console.log("Expression " + e);
         console.log("Number of times "+i);
@@ -566,31 +568,4 @@ function checkAnswerTruth() {
         document.getElementById("resultText").innerHTML = "INCORRECT..."
         document.getElementById("ShowBTN").hidden = false;
     }
-}
-
-function jokeOfTheDay() {
-    const xhrjoke = new XMLHttpRequest();
-
-    xhrjoke.open("GET", "https://booleanpractice.herokuapp.com/joke", true);
-
-    xhrjoke.onreadystatechange = () => {
-        console.log("Detected a change to readyState: " + xhrjoke.readyState);
-        console.log(xhrjoke)
-        if (xhrjoke.readyState == 4) {
-            console.log("The data is ready");
-            console.log("Data as received:");
-            console.log(xhrjoke.response);
-            let data = JSON.parse(xhrjoke.response);
-            console.log(data);
-            try{
-                if (data != null){
-                    document.getElementById("joke");
-                    document.getElementById("jokeAnswer");
-                }
-            } 
-            catch{
-                document.getElementById("joke");
-            }
-        }
-    }    
 }
