@@ -12,6 +12,10 @@ var resultsCompareFinal = "";
 let tableAnswer = [];
 let tableAnswerFinal = "";
 let match = "";
+let match1 = "";
+let match2 = "";
+let match3 = "";
+let match4 = "";
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
@@ -259,6 +263,12 @@ function buildExpression(expression) {
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
+        matchto = String.fromCharCode(65+r);
+        do{
+            let r = Math.floor(Math.random()*5);
+            match = String.fromCharCode(65+r);
+        }
+        while(match == matchto || match == match1 || match == match2 || match == match3 || match == match4);
         console.log("match");
         e += match; 
         console.log("Expression " + e);
@@ -270,7 +280,7 @@ function buildExpression(expression) {
             if (y==0){
                 e += "&(";
                 let s = Math.floor(Math.random()*5);
-                let match1 = String.fromCharCode(65+s); 
+                match1 = String.fromCharCode(65+s); 
                 console.log("Match " + match);
                 do{
                     s = Math.floor(Math.random()*5);
@@ -283,7 +293,7 @@ function buildExpression(expression) {
             if (y==1){
                 e += "||(";
                 let t = Math.floor(Math.random()*5);
-                let match2 = String.fromCharCode(65+t); 
+                match2 = String.fromCharCode(65+t); 
                 console.log("Match " + match);
                 do{
                     t = Math.floor(Math.random()*5);
@@ -296,7 +306,7 @@ function buildExpression(expression) {
             if (y==2){
                 e += "&~(";
                 let u = Math.floor(Math.random()*5);
-                let match3 = String.fromCharCode(65+u);
+                match3 = String.fromCharCode(65+u);
                 console.log("Match " + match);
                 do{
                     u = Math.floor(Math.random()*5);
@@ -309,7 +319,7 @@ function buildExpression(expression) {
             if (y==3){
                 e += "||~(";
                 let v = Math.floor(Math.random()*5);
-                let match4 = String.fromCharCode(65+v); 
+                match4 = String.fromCharCode(65+v); 
                 console.log("Match " + match);
                 do{
                     v = Math.floor(Math.random()*5);
