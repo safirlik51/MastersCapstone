@@ -30,7 +30,7 @@ document.getElementById("RandomBTN").addEventListener("click", Random);
 
 let x = document.getElementById("joke");
 if(window.getComputedStyle(x).visibility === "visible"){
-    x.onload = jokeOfTheDay();
+    document.onload = jokeOfTheDay();
 }
 
 function TruthToExpression() {
