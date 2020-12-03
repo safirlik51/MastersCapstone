@@ -272,8 +272,9 @@ function buildExpression(expression) {
                 let match1 = String.fromCharCode(65+s); 
                 while (match1 = match){
                     s = Math.floor(Math.random()*5);
-                    match1 = String.fromCharCode(65+s);
+                    console.log("match1");
                 }
+                match1 = String.fromCharCode(65+s);
                 e += match1;
             }
             if (y==1){
@@ -282,8 +283,9 @@ function buildExpression(expression) {
                 let match2 = String.fromCharCode(65+t); 
                 while (match2 = match){
                     t = Math.floor(Math.random()*5);
-                    match2 = String.fromCharCode(65+t);
+                    console.log("match2");
                 }
+                match2 = String.fromCharCode(65+t);
                 e += match2; 
             }
             if (y==2){
@@ -292,8 +294,9 @@ function buildExpression(expression) {
                 let match3 = String.fromCharCode(65+u);
                 while (match3 = match){
                     u = Math.floor(Math.random()*5);
-                    match3 = String.fromCharCode(65+u);
+                    console.log("match3");
                 }
+                match3 = String.fromCharCode(65+u);
                 e += match3; 
             }
             if (y==3){
@@ -302,8 +305,9 @@ function buildExpression(expression) {
                 let match4 = String.fromCharCode(65+v); 
                 while (match4 = match){
                     v = Math.floor(Math.random()*5);
-                    match4 = String.fromCharCode(65+v);
+                    console.log("match4");
                 }
+                match4 = String.fromCharCode(65+v);
                 e += match4; 
             }
         }
