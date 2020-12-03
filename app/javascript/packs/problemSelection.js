@@ -28,15 +28,7 @@ document.getElementById("CircuitToTruthBTN").addEventListener("click", CircuitTo
 document.getElementById("CircuitToExpressionBTN").addEventListener("click", CircuitToExpression);
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
-let x = document.getElementById("joke");
-x = fetch("https://booleanpractice.herokuapp.com/joke");
-if(window.getComputedStyle(x).visibility === "visible"){
-    document.onload = jokeOfTheDay();
-}
-
 function TruthToExpression() {
-    document.getElementById("joke").hidden = true;
-    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
@@ -58,8 +50,6 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
-    document.getElementById("joke").hidden = true;
-    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
@@ -84,8 +74,6 @@ function ExpressionToCircuit() {
 function CircuitToTruth() {
     buildTruth();
     wolfram();
-    document.getElementById("joke").hidden = true;
-    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -102,8 +90,6 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
-    document.getElementById("joke").hidden = true;
-    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
