@@ -277,7 +277,7 @@ function buildExpression(expression) {
                     console.log("match1 " + match1);
                     match1 = String.fromCharCode(65+s);
                 }
-                while (match1 != match);
+                while (match1 == match);
                 e += match1;
             }
             if (y==1){
@@ -290,7 +290,7 @@ function buildExpression(expression) {
                     console.log("match2 " + match2);
                     match2 = String.fromCharCode(65+t);
                 }
-                while (match2 != match);
+                while (match2 == match);
                 e += match2; 
             }
             if (y==2){
@@ -303,7 +303,7 @@ function buildExpression(expression) {
                     match3 = String.fromCharCode(65+u);
                     console.log("match3 " + match3);
                 }
-                while (match3 != match);
+                while (match3 == match);
                 e += match3; 
             }
             if (y==3){
@@ -316,7 +316,7 @@ function buildExpression(expression) {
                     console.log("match4 " + match4);
                     match4 = String.fromCharCode(65+v);
                 }
-                while (match4 != match);
+                while (match4 == match);
                 e += match4; 
             }
         }
