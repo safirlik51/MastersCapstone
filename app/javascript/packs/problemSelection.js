@@ -27,7 +27,11 @@ document.getElementById("ExpressionToCircuitBTN").addEventListener("click", Expr
 document.getElementById("CircuitToTruthBTN").addEventListener("click", CircuitToTruth);
 document.getElementById("CircuitToExpressionBTN").addEventListener("click", CircuitToExpression);
 document.getElementById("RandomBTN").addEventListener("click", Random);
-jokeOfTheDay();
+
+let x = document.getElementById("joke");
+if(window.getComputedStyle(x).visibility === "visible"){
+    jokeOfTheDay();
+}
 
 function TruthToExpression() {
     document.getElementById("joke").hidden = true;
