@@ -46,7 +46,7 @@ function TruthToExpression() {
 }
 
 function TruthToCircuit() {
-    document.getElementById("problemDirections").innerHTML = "Given the truth table below create the logic circuit!";
+    document.getElementById("problemDirections").innerHTML = "This feature is not yet available...";
 }
 
 function ExpressionToTruth() {
@@ -68,7 +68,7 @@ function ExpressionToTruth() {
 }
 
 function ExpressionToCircuit() {
-    document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
+    document.getElementById("problemDirections").innerHTML = "This feature is not yet avaialble...";
 }
 
 function CircuitToTruth() {
@@ -106,7 +106,7 @@ function CircuitToExpression() {
 }
 
 function Random() {
-    let problem = Math.floor(Math.random() * 6) + 1;
+    let problem = Math.floor(Math.random() * 4) + 1;
 
     if (problem == 1){
         TruthToExpression();
