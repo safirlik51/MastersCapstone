@@ -424,7 +424,7 @@ function buildResults() {
 }
 
 function wolfram(){
-    document.getElementById("wolfram").hidden = true;
+    document.getElementById("wolfram").src = "";
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("circuit").style.color = "black";
     document.getElementById("circuit").innerHTML = "Generating Circuit...";
