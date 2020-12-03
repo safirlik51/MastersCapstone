@@ -29,6 +29,7 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 let x = document.getElementById("joke");
+x = fetch("https://booleanpractice.herokuapp.com/joke");
 if(window.getComputedStyle(x).visibility === "visible"){
     document.onload = jokeOfTheDay();
 }
