@@ -17,4 +17,11 @@ class WelcomeController < ApplicationController
     render plain: response.body
 end
 
+def joke
+  jokes = Faraday.get("https://official-joke-api.appspot.com/jokes/random")
+  puts "Success!"
+  puts jokes
+  render plain: jokes.body
+end
+
 end

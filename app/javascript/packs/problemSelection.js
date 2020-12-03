@@ -27,8 +27,11 @@ document.getElementById("ExpressionToCircuitBTN").addEventListener("click", Expr
 document.getElementById("CircuitToTruthBTN").addEventListener("click", CircuitToTruth);
 document.getElementById("CircuitToExpressionBTN").addEventListener("click", CircuitToExpression);
 document.getElementById("RandomBTN").addEventListener("click", Random);
+jokeOfTheDay();
 
 function TruthToExpression() {
+    document.getElementById("joke").hidden = true;
+    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
@@ -47,10 +50,11 @@ function TruthToExpression() {
 
 function TruthToCircuit() {
     document.getElementById("problemDirections").innerHTML = "Given the truth table below create the logic circuit!";
-    //document.getElementById("circuitVerse").hidden = false;
 }
 
 function ExpressionToTruth() {
+    document.getElementById("joke").hidden = true;
+    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
@@ -69,14 +73,14 @@ function ExpressionToTruth() {
 }
 
 function ExpressionToCircuit() {
-    //document.getElementById("circuitVerse").hidden = false;
-    //document.getElementById("circuitVerse").innerHTML = fetch("https://circuitverse.org/simulator");
     document.getElementById("problemDirections").innerHTML = "Given the expression below create the logic circuit!";
 }
 
 function CircuitToTruth() {
     buildTruth();
     wolfram();
+    document.getElementById("joke").hidden = true;
+    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -93,6 +97,8 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
+    document.getElementById("joke").hidden = true;
+    document.getElementById("jokeAnswer").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -200,7 +206,6 @@ function buildTruth() {
         placeholder.innerHTML = string;
     else
     placeholder.innerHTML = "<p>Invalid expression.</p>";
-    //e += ')';
     console.log("LOOK HERE! " + e);
     let table = document.getElementById("truth");
     for (let i = 0,row;row = table.rows[i];i++){
@@ -258,9 +263,11 @@ function buildExpression(expression) {
     let x = Math.floor(Math.random()*3)+2;
     
     for(let i=0;i<x;i++){
+        let match = "";
         console.log(x);
         let r = Math.floor(Math.random()*5);
-        e += String.fromCharCode(65+r); 
+        match = String.fromCharCode(65+r);
+        e += match; 
         console.log("Expression " + e);
         console.log("Number of times "+i);
 
@@ -524,4 +531,31 @@ function checkAnswerTruth() {
         document.getElementById("resultText").innerHTML = "INCORRECT..."
         document.getElementById("ShowBTN").hidden = false;
     }
+}
+
+function jokeOfTheDay() {
+    const xhrjoke = new XMLHttpRequest();
+
+    xhrjoke.open("GET", "https://booleanpractice.herokuapp.com/joke", true);
+
+    xhrjoke.onreadystatechange = () => {
+        console.log("Detected a change to readyState: " + xhrjoke.readyState);
+        console.log(xhrjoke)
+        if (xhrjoke.readyState == 4) {
+            console.log("The data is ready");
+            console.log("Data as received:");
+            console.log(xhrjoke.response);
+            let data = JSON.parse(xhrjoke.response);
+            console.log(data);
+            try{
+                if (data != null){
+                    document.getElementById("joke");
+                    document.getElementById("jokeAnswer");
+                }
+            } 
+            catch{
+                document.getElementById("joke");
+            }
+        }
+    }    
 }
