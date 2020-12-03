@@ -271,44 +271,52 @@ function buildExpression(expression) {
                 e += "&(";
                 let s = Math.floor(Math.random()*5);
                 let match1 = String.fromCharCode(65+s); 
-                while (match1 == match){
+                console.log("Match " + match);
+                do{
                     s = Math.floor(Math.random()*5);
-                    console.log("match1");
+                    console.log("match1 " + match1);
+                    match1 = String.fromCharCode(65+s);
                 }
-                match1 = String.fromCharCode(65+s);
+                while (match1 != match);
                 e += match1;
             }
             if (y==1){
                 e += "||(";
                 let t = Math.floor(Math.random()*5);
                 let match2 = String.fromCharCode(65+t); 
-                while (match2 == match){
+                console.log("Match " + match);
+                do{
                     t = Math.floor(Math.random()*5);
-                    console.log("match2");
+                    console.log("match2 " + match2);
+                    match2 = String.fromCharCode(65+t);
                 }
-                match2 = String.fromCharCode(65+t);
+                while (match2 != match);
                 e += match2; 
             }
             if (y==2){
                 e += "&~(";
                 let u = Math.floor(Math.random()*5);
                 let match3 = String.fromCharCode(65+u);
-                while (match3 == match){
+                console.log("Match " + match);
+                do{
                     u = Math.floor(Math.random()*5);
-                    console.log("match3");
+                    match3 = String.fromCharCode(65+u);
+                    console.log("match3 " + match3);
                 }
-                match3 = String.fromCharCode(65+u);
+                while (match3 != match);
                 e += match3; 
             }
             if (y==3){
                 e += "||~(";
                 let v = Math.floor(Math.random()*5);
                 let match4 = String.fromCharCode(65+v); 
-                while (match4 == match){
+                console.log("Match " + match);
+                do{
                     v = Math.floor(Math.random()*5);
-                    console.log("match4");
+                    console.log("match4 " + match4);
+                    match4 = String.fromCharCode(65+v);
                 }
-                match4 = String.fromCharCode(65+v);
+                while (match4 != match);
                 e += match4; 
             }
         }
