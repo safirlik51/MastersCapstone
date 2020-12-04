@@ -16,6 +16,7 @@ let match1 = "";
 let match2 = "";
 let match3 = "";
 let match4 = "";
+let dropdown = false;
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
@@ -34,6 +35,7 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
+    dropdown = false;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
@@ -55,6 +57,7 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
+    dropdown = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
@@ -79,6 +82,7 @@ function ExpressionToCircuit() {
 function CircuitToTruth() {
     buildTruth();
     wolfram();
+    dropdown = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -95,6 +99,7 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
+    dropdown = false;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -185,7 +190,7 @@ function buildTruth() {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
         console.log(buildTruth.caller.name);
-        if (buildTruth.caller.name == "g" || buildTruth.caller.name == "b" || buildTruth.caller.name == "y"){
+        if (dropdown == true){
             solve(equation);
             console.log("START");
             string += "<td>" + "<select id='userInput' name='userInput'><option value='0'>0</option> <option value='1'>1</option></select>" + "</td></tr>";
