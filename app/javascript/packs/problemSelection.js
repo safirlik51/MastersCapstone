@@ -1,6 +1,3 @@
-const WolframAlphaAPI = require('wolfram-alpha-api');
-const waApi = WolframAlphaAPI('GRWHG2-8TQ9WK8J4J');
-
 let text = "";
 let e = '';
 let equation = "";
@@ -17,6 +14,7 @@ let match2 = "";
 let match3 = "";
 let match4 = "";
 let dropdown = false;
+let callTruth = false;
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
 document.getElementById("AnswerField").hidden = true;
@@ -534,7 +532,7 @@ function getResultTruth(result){
 }
 
 function checkAnswer() {
-    dropdown = false;
+    callTruth = false;
     buildResults();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
@@ -554,7 +552,7 @@ function checkAnswer() {
 }
 
 function checkAnswerTruth() {
-    dropdown = true;
+    callTruth = true;
     buildResults();
     console.log("TableAnswer " + tableAnswerFinal);
     console.log("Build " + buildCompareFinal)
