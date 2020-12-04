@@ -360,7 +360,7 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     console.log("BUILD CALLER " + buildResults.caller.name)
-    if(buildResults.caller.name == "S"){    
+    if(buildResults.caller.name == "S" || buildResults.caller.name == "I"){    
         text = getResult(); 
     }
     else{
