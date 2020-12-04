@@ -189,7 +189,6 @@ function buildTruth() {
         for (j = 0; j < variables.length; j++) {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
-        console.log(buildTruth.caller.name);
         if (dropdown == true){
             solve(equation);
             console.log("START");
@@ -257,8 +256,6 @@ function buildTruth() {
 }
 
 function buildExpression(expression) {
-    
-    console.log("Function " + buildExpression.caller.name);
     e = '';
     e = '(';
     let x = Math.floor(Math.random()*3)+2;
@@ -364,8 +361,7 @@ function buildResults() {
     resultsCompareFinal = '';
     let i, j;
     let placeholder = document.getElementById("answer");
-    console.log("BUILD CALLER " + buildResults.caller.name)
-    if(buildResults.caller.name == "S" || buildResults.caller.name == "I"){    
+    if(dropdown == false){    
         text = getResult(); 
     }
     else{
