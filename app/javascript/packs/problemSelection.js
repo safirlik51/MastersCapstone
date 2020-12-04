@@ -34,6 +34,7 @@ document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
     dropdown = false;
+    callTruth = "";
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
     document.getElementById("wolfram").hidden = true;
@@ -56,6 +57,7 @@ function TruthToCircuit() {
 
 function ExpressionToTruth() {
     dropdown = true;
+    callTruth = "";
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
@@ -81,6 +83,7 @@ function CircuitToTruth() {
     buildTruth();
     wolfram();
     dropdown = true;
+    callTruth = "";
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
@@ -97,6 +100,7 @@ function CircuitToTruth() {
 function CircuitToExpression() {
     buildTruth();
     wolfram();
+    callTruth = "";
     dropdown = false;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
