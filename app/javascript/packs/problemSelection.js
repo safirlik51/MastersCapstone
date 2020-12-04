@@ -276,7 +276,7 @@ function buildExpression(expression) {
         console.log("Expression " + e);
         console.log("Number of times "+i);
 
-        if (i==1 || i==3){
+        if (i==1 || i==3 || i==5){
             e += ")";
             let y = Math.floor(Math.random()*4);
             if (y==0){
@@ -289,7 +289,7 @@ function buildExpression(expression) {
                     console.log("match1 " + match1);
                     match1 = String.fromCharCode(65+s);
                 }
-                while (match1 == match);
+                while (match1==match);
                 e += match1;
             }
             if (y==1){
@@ -302,7 +302,7 @@ function buildExpression(expression) {
                     console.log("match2 " + match2);
                     match2 = String.fromCharCode(65+t);
                 }
-                while (match2 == match);
+                while (match2==match);
                 e += match2; 
             }
             if (y==2){

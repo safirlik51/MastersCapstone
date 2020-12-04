@@ -80,6 +80,9 @@ td {
 td:nth-child(1) {  
     border: none;
 }
+td:last-child{
+    border: 3px solid black;
+}
 #userInput{
     text-align: center;
 }
