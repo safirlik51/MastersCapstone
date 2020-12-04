@@ -534,6 +534,7 @@ function getResultTruth(result){
 }
 
 function checkAnswer() {
+    dropdown = false;
     buildResults();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
@@ -553,6 +554,7 @@ function checkAnswer() {
 }
 
 function checkAnswerTruth() {
+    dropdown = true;
     buildResults();
     console.log("TableAnswer " + tableAnswerFinal);
     console.log("Build " + buildCompareFinal)
