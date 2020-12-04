@@ -363,7 +363,7 @@ function buildResults() {
     resultsCompareFinal = '';
     let i, j;
     let placeholder = document.getElementById("answer");
-    if(dropdown == false){    
+    if(callTruth == false){    
         text = getResult(); 
     }
     else{
