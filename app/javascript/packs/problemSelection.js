@@ -264,7 +264,7 @@ function buildExpression(expression) {
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
         matchto = String.fromCharCode(65+r);
-        if (i!=0){
+        if (i<x){
            do{
                 r = Math.floor(Math.random()*5);
                 match = String.fromCharCode(65+r);
