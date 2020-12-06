@@ -261,7 +261,7 @@ function buildTruth() {
 function buildExpression(expression) {
     e = '';
     e = '(';
-    let x = Math.floor(Math.random()*3)+2;
+    let x = Math.floor(Math.random()*2)+2;
     
     for(let i=0;i<x;i++){
         match = "";
