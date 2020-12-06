@@ -277,6 +277,8 @@ function buildExpression(expression) {
             }
             while(match==matchto || match==match1 || match==match2 || match==match3 || match==match4); 
         }
+        console.log("Match " + match);
+        console.log("Match To " + matchto);
         e += match; 
         console.log("Expression " + e);
         console.log("Number of times "+i);
