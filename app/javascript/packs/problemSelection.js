@@ -80,9 +80,9 @@ function ExpressionToCircuit() {
 }
 
 function CircuitToTruth() {
+    dropdown = true;
     buildTruth();
     wolfram();
-    dropdown = true;
     callTruth = "";
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
@@ -98,10 +98,10 @@ function CircuitToTruth() {
 }
 
 function CircuitToExpression() {
+    dropdown = false;
     buildTruth();
     wolfram();
     callTruth = "";
-    dropdown = false;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("wolfram").hidden = false;
     document.getElementById("circuit").hidden = false;
