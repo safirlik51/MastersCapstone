@@ -273,7 +273,7 @@ function buildExpression(expression) {
            do{
                 r = Math.floor(Math.random()*5);
                 match = String.fromCharCode(65+r);
-                console.log("Match " + match);
+                console.log("Match While" + match);
             }
             while(match==matchto || match==match1 || match==match2 || match==match3 || match==match4); 
         }
