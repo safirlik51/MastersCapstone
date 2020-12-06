@@ -8,6 +8,7 @@ var resultsCompare = [];
 var resultsCompareFinal = "";
 let tableAnswer = [];
 let tableAnswerFinal = "";
+let matchto = "";
 let match = "";
 let match1 = "";
 let match2 = "";
@@ -267,7 +268,7 @@ function buildExpression(expression) {
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
-        matchto = String.fromCharCode(65+r);
+        matchto = match;
         if (i<x){
            do{
                 r = Math.floor(Math.random()*5);
