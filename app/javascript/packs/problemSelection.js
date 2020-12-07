@@ -16,14 +16,17 @@ let match3 = "";
 let match4 = "";
 let dropdown = false;
 let callTruth = false;
-document.getElementById("circuitVerse").hidden = true;
-document.getElementById("SubmitBTN").hidden = true;
-document.getElementById("AnswerField").hidden = true;
-document.getElementById("ShowBTN").hidden = true;
-document.getElementById("answer").hidden = true;
-document.getElementById("wolfram").hidden = true;
+document.getElementById("equation").hidden = true;
 document.getElementById("circuit").hidden = true;
 document.getElementById("TryAgainBTN").hidden = true;
+document.getElementById("wolfram").hidden = true;
+document.getElementById("problem").hidden = true;
+document.getElementById("circuitVerse").hidden = true;
+document.getElementById("answer").hidden = true;
+document.getElementById("resultText").hidden = true;
+document.getElementById("AnswerField").hidden = true;
+document.getElementById("SubmitBTN").hidden = true;
+document.getElementById("ShowBTN").hidden = true;
 document.getElementById("NewBTN").hidden = true;
 document.getElementById("TruthToExpressionBTN").addEventListener("click", TruthToExpression);
 document.getElementById("TruthToCircuitBTN").addEventListener("click", TruthToCircuit);
@@ -34,31 +37,50 @@ document.getElementById("CircuitToExpressionBTN").addEventListener("click", Circ
 document.getElementById("RandomBTN").addEventListener("click", Random);
 
 function TruthToExpression() {
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
+    document.getElementById("equation").hidden = true;
+    document.getElementById("circuit").hidden = true;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = true;
+    document.getElementById("problem").hidden = false;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("resultText").hidden = true;
+    document.getElementById("AnswerField").hidden = false;
+    document.getElementById("SubmitBTN").hidden = false;
+    document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
     dropdown = false;
     callTruth = "";
-    document.getElementById("TryAgainBTN").hidden = true;
-    document.getElementById("problem").hidden = false;
-    document.getElementById("wolfram").hidden = true;
-    document.getElementById("circuit").hidden = true;
-    document.getElementById("equation").hidden = true;
-    document.getElementById("SubmitBTN").hidden = false;
-    document.getElementById("AnswerField").hidden = false;
-    document.getElementById("resultText").hidden = true;
-    document.getElementById("NewBTN").hidden = true;
     buildTruth();
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
-    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
+    document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("equation").innerHTML = e;
+        document.getElementById("equation").hidden = false;
+    });
 }
 
 function TruthToCircuit() {
     document.getElementById("problemDirections").innerHTML = "This feature is not yet available...";
+    document.getElementById("equation").hidden = true;
+    document.getElementById("circuit").hidden = true;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = true;
+    document.getElementById("problem").hidden = true;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("resultText").hidden = true;
+    document.getElementById("AnswerField").hidden = true;
+    document.getElementById("SubmitBTN").hidden = true;
+    document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
 }
 
 function ExpressionToTruth() {
     dropdown = true;
     callTruth = "";
+    document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("TryAgainBTN").hidden = true;
     document.getElementById("problem").hidden = false;
@@ -73,49 +95,78 @@ function ExpressionToTruth() {
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
-    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
+    document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("answer").hidden = false;
+    });
 }
 
 function ExpressionToCircuit() {
     document.getElementById("problemDirections").innerHTML = "This feature is not yet avaialble...";
+    document.getElementById("equation").hidden = true;
+    document.getElementById("circuit").hidden = true;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = true;
+    document.getElementById("problem").hidden = true;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("resultText").hidden = true;
+    document.getElementById("AnswerField").hidden = true;
+    document.getElementById("SubmitBTN").hidden = true;
+    document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
 }
 
 function CircuitToTruth() {
+    document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("equation").hidden = true;
+    document.getElementById("circuit").hidden = false;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = false;
+    document.getElementById("problem").hidden = false;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("resultText").hidden = true;
+    document.getElementById("AnswerField").hidden = true;
+    document.getElementById("SubmitBTN").hidden = false;
+    document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
     dropdown = true;
+    callTruth = "";
     buildTruth();
     wolfram();
-    callTruth = "";
-    document.getElementById("NewBTN").hidden = true;
-    document.getElementById("wolfram").hidden = false;
-    document.getElementById("circuit").hidden = false;
-    document.getElementById("equation").hidden = true;
-    document.getElementById("SubmitBTN").hidden = false;
-    document.getElementById("resultText").hidden = true;
-    document.getElementById("problemDirections").innerHTML = "Given the logic circuit below complete the truth table!";
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
-    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
+    document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("answer").hidden = false;
+    });
 }
 
 function CircuitToExpression() {
-    dropdown = false;
-    buildTruth();
-    wolfram();
-    callTruth = "";
-    document.getElementById("NewBTN").hidden = true;
-    document.getElementById("wolfram").hidden = false;
-    document.getElementById("circuit").hidden = false;
+    document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
     document.getElementById("equation").hidden = true;
+    document.getElementById("circuit").hidden = false;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = false;
     document.getElementById("problem").hidden = true;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
-    document.getElementById("resultText").hidden = true;
-    document.getElementById("problemDirections").innerHTML = "Enter the expression given the logic circuit below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
+    document.getElementById("ShowBTN").hidden = true;
+    document.getElementById("NewBTN").hidden = true;
+    dropdown = false;
+    callTruth = "";
+    buildTruth();
+    wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
-    //document.getElementById("ShowBTN").addEventListener("click", TruthToExpression);
+    document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("equation").innerHTML = e;
+        document.getElementById("equation").hidden = false;
+    });
 }
 
 function Random() {
