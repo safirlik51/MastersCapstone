@@ -50,6 +50,7 @@ function TruthToExpression() {
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
+    document.getElementById("AnswerField").value = "";
     dropdown = false;
     callTruth = "";
     buildTruth();
@@ -161,6 +162,7 @@ function CircuitToExpression() {
     document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
+    document.getElementById("AnswerField").value = "";
     dropdown = false;
     callTruth = "";
     buildTruth();
@@ -603,6 +605,7 @@ function checkAnswer() {
         document.getElementById("resultText").innerHTML = "CORRECT!"
         document.getElementById("NewBTN").hidden = false;
         document.getElementById("ShowBTN").hidden = true;
+        document.getElementById("AnswerField").value = "";
     }
     else{
         document.getElementById("resultText").hidden = false;
