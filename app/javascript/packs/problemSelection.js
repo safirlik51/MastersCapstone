@@ -269,7 +269,7 @@ function buildExpression(expression) {
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
-        while (match==matchto || match==match1 || match==match2 || match==match3 || match==match4){
+        while (match=matchto){
             r = Math.floor(Math.random()*5);
             match = String.fromCharCode(65+r);
             console.log("Match While" + match);
@@ -307,7 +307,7 @@ function buildExpression(expression) {
                     console.log("match2 " + match2);
                     match2 = String.fromCharCode(65+t);
                 }
-                while (match2==match);
+                while (match2=match);
                 e += match2; 
             }
             if (y==2){
@@ -320,7 +320,7 @@ function buildExpression(expression) {
                     match3 = String.fromCharCode(65+u);
                     console.log("match3 " + match3);
                 }
-                while (match3 == match);
+                while (match3=match);
                 e += match3; 
             }
             if (y==3){
@@ -333,7 +333,7 @@ function buildExpression(expression) {
                     console.log("match4 " + match4);
                     match4 = String.fromCharCode(65+v);
                 }
-                while (match4 == match);
+                while (match4=match);
                 e += match4; 
             }
         }
