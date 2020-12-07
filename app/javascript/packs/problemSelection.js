@@ -23,6 +23,7 @@ document.getElementById("wolfram").hidden = true;
 document.getElementById("problem").hidden = true;
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("answer").hidden = true;
+document.getElementById("truth").hidden = true;
 document.getElementById("resultText").hidden = true;
 document.getElementById("AnswerField").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
@@ -45,6 +46,7 @@ function TruthToExpression() {
     document.getElementById("problem").hidden = false;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
@@ -70,6 +72,7 @@ function TruthToCircuit() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = true;
@@ -78,19 +81,22 @@ function TruthToCircuit() {
 }
 
 function ExpressionToTruth() {
-    dropdown = true;
-    callTruth = "";
+    document.getElementById("problemDirections").innerHTML = "Given the expression below complete the truth table!";
+    document.getElementById("equation").hidden = false;
+    document.getElementById("circuit").hidden = true;
+    document.getElementById("TryAgainBTN").hidden = true;
+    document.getElementById("wolfram").hidden = true;
+    document.getElementById("problem").hidden = false;
+    document.getElementById("circuitVerse").hidden = true;
+    document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
+    document.getElementById("resultText").hidden = true;
+    document.getElementById("AnswerField").hidden = true;
+    document.getElementById("SubmitBTN").hidden = false;
     document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
-    document.getElementById("TryAgainBTN").hidden = true;
-    document.getElementById("problem").hidden = false;
-    document.getElementById("wolfram").hidden = true;
-    document.getElementById("circuit").hidden = true;
-    document.getElementById("resultText").hidden = true;
-    document.getElementById("equation").hidden = false;
-    document.getElementById("SubmitBTN").hidden = false;
-    document.getElementById("AnswerField").hidden = true;
-    document.getElementById("problemDirections").innerHTML = "Given the expression below complete the truth table!";
+    dropdown = true;
+    callTruth = "";
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
@@ -109,6 +115,7 @@ function ExpressionToCircuit() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = true;
@@ -125,6 +132,7 @@ function CircuitToTruth() {
     document.getElementById("problem").hidden = false;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
@@ -151,6 +159,7 @@ function CircuitToExpression() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
+    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
