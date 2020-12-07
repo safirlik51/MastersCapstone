@@ -56,7 +56,6 @@ function TruthToExpression() {
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
-        document.getElementById("truth").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
@@ -99,7 +98,6 @@ function ExpressionToTruth() {
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
-        document.getElementById("truth").hidden = true;
         document.getElementById("answer").hidden = false;
     });
 }
@@ -142,7 +140,6 @@ function CircuitToTruth() {
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
-        document.getElementById("truth").hidden = true;
         document.getElementById("answer").hidden = false;
     });
 }
@@ -169,7 +166,6 @@ function CircuitToExpression() {
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
-        document.getElementById("truth").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
