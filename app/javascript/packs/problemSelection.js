@@ -271,9 +271,11 @@ function buildExpression(expression) {
         match = String.fromCharCode(65+r);
         console.log(match);
         while (match===matchto){
-            r = Math.floor(Math.random()*5);
-            match = String.fromCharCode(65+r);
-            console.log("Match While" + match);
+            if(match===matchto){
+                r = Math.floor(Math.random()*5);
+                match = String.fromCharCode(65+r);
+                console.log("Match While" + match);
+            }
         }
         matchto = match;
         console.log("Match " + match);
@@ -328,13 +330,12 @@ function buildExpression(expression) {
                 e += "||~(";
                 let v = Math.floor(Math.random()*5);
                 match4 = String.fromCharCode(65+v); 
-                console.log("Match " + match);
-                do{
+                console.log("Match " + match);  
+                while (match4===match){
                     v = Math.floor(Math.random()*5);
                     console.log("match4 " + match4);
                     match4 = String.fromCharCode(65+v);
                 }
-                while (match4===match);
                 e += match4; 
             }
         }
