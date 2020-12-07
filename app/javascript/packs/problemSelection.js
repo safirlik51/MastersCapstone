@@ -468,13 +468,13 @@ function buildResults() {
         }
         string += "<td>" + solveResult(equation) + "</td></tr>";
     }
-    string = "<table align='center' id='truth'>" + string + "</table>";
+    string = "<table align='center' id='truthresult'>" + string + "</table>";
     if (string.indexOf("<td></td>") == -1)
         placeholder.innerHTML = string;
     else
     placeholder.innerHTML = "<p>Invalid expression.</p>";
 
-    let table = document.getElementById("truth");
+    let table = document.getElementById("truthresult");
     for (let i = 0,row;row = table.rows[i];i++){
         for(let j=0,col; col = row.cells[j];j++){
             if (col.textContent == e){
