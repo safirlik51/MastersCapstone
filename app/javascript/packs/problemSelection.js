@@ -58,6 +58,8 @@ function TruthToExpression() {
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("equation").innerHTML = e;
+        document.getElementById("equation").style.color = "orange";
+        document.getElementById("equation").style.border = "2px solid orange";
         document.getElementById("equation").hidden = false;
     });
 }
@@ -169,6 +171,8 @@ function CircuitToExpression() {
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("equation").innerHTML = e;
+        document.getElementById("equation").style.color = "orange";
+        document.getElementById("equation").style.border = "2px solid orange";
         document.getElementById("equation").hidden = false;
     });
 }
