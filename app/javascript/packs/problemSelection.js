@@ -269,6 +269,7 @@ function buildExpression(expression) {
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
+        console.log(match);
         while (match=matchto){
             r = Math.floor(Math.random()*5);
             match = String.fromCharCode(65+r);
