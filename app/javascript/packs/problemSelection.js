@@ -420,7 +420,8 @@ function buildResults() {
         text = getResult(); 
     }
     else{
-        text = getResultTruth();
+        text = e;
+        getResultTruth();
     }
     if (text == "") {
         placeholder.innerHTML = "<div></div>";
