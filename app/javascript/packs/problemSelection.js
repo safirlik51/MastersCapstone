@@ -59,6 +59,7 @@ function TruthToExpression() {
         document.getElementById("answer").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").style.backgroundColor = "yellow";
+        document.getElementById("AnswerField").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
 }
@@ -171,6 +172,7 @@ function CircuitToExpression() {
         document.getElementById("answer").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").style.backgroundColor = "yellow";
+        document.getElementById("AnswerField").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
 }
