@@ -23,7 +23,6 @@ document.getElementById("wolfram").hidden = true;
 document.getElementById("problem").hidden = true;
 document.getElementById("circuitVerse").hidden = true;
 document.getElementById("answer").hidden = true;
-document.getElementById("truth").hidden = true;
 document.getElementById("resultText").hidden = true;
 document.getElementById("AnswerField").hidden = true;
 document.getElementById("SubmitBTN").hidden = true;
@@ -46,7 +45,6 @@ function TruthToExpression() {
     document.getElementById("problem").hidden = false;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
@@ -58,6 +56,7 @@ function TruthToExpression() {
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("truth").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
@@ -72,7 +71,6 @@ function TruthToCircuit() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = true;
@@ -89,7 +87,6 @@ function ExpressionToTruth() {
     document.getElementById("problem").hidden = false;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
@@ -102,6 +99,7 @@ function ExpressionToTruth() {
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("truth").hidden = true;
         document.getElementById("answer").hidden = false;
     });
 }
@@ -115,7 +113,6 @@ function ExpressionToCircuit() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = true;
@@ -132,7 +129,6 @@ function CircuitToTruth() {
     document.getElementById("problem").hidden = false;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = true;
     document.getElementById("SubmitBTN").hidden = false;
@@ -146,6 +142,7 @@ function CircuitToTruth() {
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("truth").hidden = true;
         document.getElementById("answer").hidden = false;
     });
 }
@@ -159,7 +156,6 @@ function CircuitToExpression() {
     document.getElementById("problem").hidden = true;
     document.getElementById("circuitVerse").hidden = true;
     document.getElementById("answer").hidden = true;
-    document.getElementById("truth").hidden = true;
     document.getElementById("resultText").hidden = true;
     document.getElementById("AnswerField").hidden = false;
     document.getElementById("SubmitBTN").hidden = false;
@@ -173,6 +169,7 @@ function CircuitToExpression() {
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
+        document.getElementById("truth").hidden = true;
         document.getElementById("equation").innerHTML = e;
         document.getElementById("equation").hidden = false;
     });
