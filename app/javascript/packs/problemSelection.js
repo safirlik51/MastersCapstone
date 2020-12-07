@@ -265,17 +265,14 @@ function buildExpression(expression) {
     
     for(let i=0;i<x;i++){
         match = "";
-        matchto = "";
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
         console.log(match);
         while (match===matchto){
-            if(match===matchto){
-                r = Math.floor(Math.random()*5);
-                match = String.fromCharCode(65+r);
-                console.log("Match While" + match);
-            }
+            r = Math.floor(Math.random()*5);
+            match = String.fromCharCode(65+r);
+            console.log("Match While" + match);
         }
         matchto = match;
         console.log("Match " + match);
