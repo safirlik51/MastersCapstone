@@ -268,15 +268,13 @@ function buildExpression(expression) {
         console.log(x);
         let r = Math.floor(Math.random()*5);
         match = String.fromCharCode(65+r);
-        console.log(match);
-        while (match===matchto){
+        console.log("Match To " + matchto);
+        while (match===matchto||match===match1||match===match2||match===match3||match===match4){
             r = Math.floor(Math.random()*5);
             match = String.fromCharCode(65+r);
             console.log("Match While" + match);
         }
         matchto = match;
-        console.log("Match " + match);
-        console.log("Match To " + matchto);
         e += match; 
         console.log("Expression " + e);
         console.log("Number of times "+i);
