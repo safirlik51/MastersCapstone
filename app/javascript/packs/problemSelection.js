@@ -633,6 +633,7 @@ function getBuildResults(){
 function checkAnswer() {
     callTruth = false;
     buildResults();
+    getBuildResults();
     getExpressionResult();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
