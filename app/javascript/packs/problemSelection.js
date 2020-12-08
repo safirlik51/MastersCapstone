@@ -513,8 +513,10 @@ function buildResults() {
             let start = equation.lastIndexOf("(");
             let end = equation.indexOf(")", start);
             if (start != -1)
-                equation = equation.substring(0, start) + solveResult(equation.substring(start + 1, end)) + equation.substring(end + 1);
-                console.log("Substring " + equation.substring(0, start));
+                equation = 
+                //equation.substring(0, start) 
+                + solveResult(equation.substring(start + 1, end)) 
+                //+ equation.substring(end + 1);
                 console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
