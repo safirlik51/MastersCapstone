@@ -602,8 +602,8 @@ function getResult(result){
 function getResultTruth(result){
     tableAnswer = [];
     tableAnswerFinal = "";
-    for(i=0;i<userInput.length;i++){
-        tableAnswer.push(userInput[i].value);    
+    for(i=0;i<truth.length;i++){
+        tableAnswer.push(truth[i].value);    
     }
     tableAnswerFinal = tableAnswer.toString();
     console.log("TableAnswer " + tableAnswerFinal);
