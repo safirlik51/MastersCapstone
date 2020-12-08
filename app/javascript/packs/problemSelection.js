@@ -200,8 +200,8 @@ function Random() {
 }
 
 function buildTruth() {
-    //buildCompare = [];
-    //buildCompareFinal = '';
+    buildCompare = [];
+    buildCompareFinal = '';
     document.getElementById("problem").innerHTML = "";
     let i, j;
     let placeholder = document.getElementById("problem");
