@@ -484,6 +484,7 @@ function buildResults() {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
         string += "<td>" + solveResult(equation) + "</td></tr>";
+        let stringResult = "";
         stringResult += solveResult(equation);
         resultsCompare.push(stringResult);
         resultsCompareFinal = resultsCompare.toString();
