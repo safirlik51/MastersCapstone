@@ -339,7 +339,7 @@ function buildExpression(expression) {
 
         if (i==1 || i==3 || i==5){
             e += ")";
-            let y = Math.floor(Math.random()*2);
+            let y = Math.floor(Math.random()*4);
             if (y==0){
                 e += "&(";
                 let s = Math.floor(Math.random()*5);
