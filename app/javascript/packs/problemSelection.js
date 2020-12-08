@@ -434,7 +434,7 @@ function buildResults() {
     let i, j;
     let placeholder = document.getElementById("answer");
     if(callTruth == false){    
-        text = getResult(); 
+        text = getResult();
     }
     else{
         text = e;
@@ -603,15 +603,27 @@ function getResultTruth(result){
     tableAnswer = [];
     tableAnswerFinal = "";
     for(i=0;i<userInput.length;i++){
-        tableAnswer.push(userInput[i].value);    }
+        tableAnswer.push(userInput[i].value);    
+    }
     tableAnswerFinal = tableAnswer.toString();
     console.log("TableAnswer " + tableAnswerFinal);
     return tableAnswerFinal;
 }
 
+function getExpressionResult(){
+    resultsCompare = [];
+    resultsCompareFinal = "";
+    for(i=0;i<truthResult.length;i++){
+        resultsCompare.push(truthResult[i].value);    
+    }
+    resultsCompareFinal = tableAnswer.toString();
+    console.log("Results " + resultsCompareFinal);
+}
+
 function checkAnswer() {
     callTruth = false;
     buildResults();
+    getExpressionResult();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
     if (resultsCompareFinal==buildCompareFinal){
