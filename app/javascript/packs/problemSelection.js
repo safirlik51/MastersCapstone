@@ -11,7 +11,9 @@ let tableAnswerFinal = "";
 let matchto = "";
 let match = "";
 let match1 = "";
+let match1i = "";
 let match2 = "";
+let match2i = "";
 let match3 = "";
 let match4 = "";
 let dropdown = false;
@@ -351,9 +353,9 @@ function buildExpression(expression) {
                 while (match1===match);
                 let x = Math.floor(Math.random()*2);
                 if(x==1){
-                    match1 = "~" + match1;
+                    match1i = "~" + match1;
                 }
-                e += match1;
+                e += match1i;
             }
             if (y==1){
                 e += "||(";
@@ -368,9 +370,9 @@ function buildExpression(expression) {
                 while (match2===match);
                 let w = Math.floor(Math.random()*2);
                 if(w==1){
-                    match2 = "~" + match2;
+                    match2i = "~" + match2;
                 }
-                e += match2; 
+                e += match2i; 
             }
             if (y==2){
                 e += "&~(";
