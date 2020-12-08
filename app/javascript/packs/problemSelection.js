@@ -257,9 +257,12 @@ function buildTruth() {
         }
         else{
             string += "<td>" + solve(equation) + "</td></tr>";
+            let stringone = "";
+            stringone += solve(equation);
+            buildCompare.push(stringone);
+            buildCompareFinal = buildCompare.toString();
+            console.log("Build " + buildCompareFinal);
         }
-        
-        
     }
     string = "<table align='center' id='truth'>" + string + "</table>";
     if (string.indexOf("<td></td>") == -1)
@@ -613,26 +616,6 @@ function getResultTruth(result){
     tableAnswerFinal = tableAnswer.toString();
     console.log("TableAnswer " + tableAnswerFinal);
     return tableAnswerFinal;
-}
-
-function getExpressionResult(){
-    resultsCompare = [];
-    resultsCompareFinal = "";
-    for(i=0;i<truthresult.length;i++){
-        resultsCompare.push(truthresult[i].value);    
-    }
-    resultsCompareFinal = resultsCompare.toString();
-    console.log("Results " + resultsCompareFinal);
-}
-
-function getBuildResults(){
-    buildCompare = [];
-    buildCompareFinal = "";
-    for(i=0;i<truth.length;i++){
-        buildCompare.push(truth[i].value);    
-    }
-    buildCompareFinal = buildCompare.toString();
-    console.log("Results " + buildCompareFinal);
 }
 
 function checkAnswer() {
