@@ -251,9 +251,12 @@ function buildTruth() {
         }
         if (dropdown == true){
             solve(equation);
-            console.log("START");
             string += "<td>" + "<select id='userInput' name='userInput'><option value='0'>0</option> <option value='1'>1</option></select>" + "</td></tr>";
-            console.log("FINISH");
+            let stringone = "";
+            stringone += solve(equation);
+            buildCompare.push(stringone);
+            buildCompareFinal = buildCompare.toString();
+            console.log("Build " + buildCompareFinal);
         }
         else{
             string += "<td>" + solve(equation) + "</td></tr>";
