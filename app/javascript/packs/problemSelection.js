@@ -200,8 +200,8 @@ function Random() {
 }
 
 function buildTruth() {
-    buildCompare = [];
-    buildCompareFinal = '';
+    //buildCompare = [];
+    //buildCompareFinal = '';
     document.getElementById("problem").innerHTML = "";
     let i, j;
     let placeholder = document.getElementById("problem");
@@ -484,6 +484,10 @@ function buildResults() {
             equation = equation.replace(new RegExp(variables[j], 'g'), data[j]);
         }
         string += "<td>" + solveResult(equation) + "</td></tr>";
+        stringResult += solveResult(equation);
+        resultsCompare.push(stringResult);
+        resultsCompareFinal = resultsCompare.toString();
+        console.log("Results " + resultsCompareFinal);
     }
     string = "<table align='center' id='truthresult'>" + string + "</table>";
     if (string.indexOf("<td></td>") == -1)
@@ -633,8 +637,6 @@ function getBuildResults(){
 function checkAnswer() {
     callTruth = false;
     buildResults();
-    getBuildResults();
-    getExpressionResult();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
     if (resultsCompareFinal==buildCompareFinal){
