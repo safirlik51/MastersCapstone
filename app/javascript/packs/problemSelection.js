@@ -512,11 +512,9 @@ function buildResults() {
         while (equation.indexOf("(") != -1) {
             let start = equation.lastIndexOf("(");
             let end = equation.indexOf(")", start);
+            console.log("Start " + start);
             if (start != -1)
-                equation = 
-                //equation.substring(0, start) 
-                + solveResult(equation.substring(start + 1, end)) 
-                //+ equation.substring(end + 1);
+                equation = equation.substring(0, start-1) + solveResult(equation.substring(start + 1, end)) + equation.substring(end);
                 console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
