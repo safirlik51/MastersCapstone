@@ -290,7 +290,7 @@ function buildTruth() {
             let start = equation.lastIndexOf("(");
             let end = equation.indexOf(")", start);
             if (start != -1)
-                equation = equation.substring(0, start) + equation.substring(start + 1, end) + equation.substring(end + 1);
+                equation = equation.substring(0, start) + solve(equation.substring(start + 1, end)) + equation.substring(end + 1);
 
         }
         equation = equation.replace(/''/g, '');
@@ -302,9 +302,9 @@ function buildTruth() {
         try {
             let safeEval = eval;
             let answer = safeEval(equation);
-            buildCompare.push(answer);
-            buildCompareFinal = buildCompare.toString();
-            console.log("Build " + buildCompareFinal);
+            //buildCompare.push(answer);
+            //buildCompareFinal = buildCompare.toString();
+            //console.log("Build " + buildCompareFinal);
             if (answer == 0)
                 return 0;
             if (answer > 0)
@@ -514,7 +514,7 @@ function buildResults() {
             let end = equation.indexOf(")", start);
             console.log("Start " + start);
             if (start != -1)
-                equation = equation.substring(0, start-1) + solveResult(equation.substring(start + 1, end)) + equation.substring(end);
+                equation = equation.substring(0, start) + solveResult(equation.substring(start + 1, end)) + equation.substring(end+1);
                 console.log("EQUATION PARA " + equation);
         }
         equation = equation.replace(/''/g, '');
@@ -532,9 +532,9 @@ function buildResults() {
         try {
             let safeEval = eval;
             let answer = safeEval(equation);
-            resultsCompare.push(answer);
-            resultsCompareFinal = resultsCompare.toString();
-            console.log("Results " + resultsCompareFinal);
+            //resultsCompare.push(answer);
+            //resultsCompareFinal = resultsCompare.toString();
+            //console.log("Results " + resultsCompareFinal);
             if (answer == 0)
                 return 0;
             if (answer > 0)
