@@ -354,8 +354,11 @@ function buildExpression(expression) {
                 let x = Math.floor(Math.random()*2);
                 if(x==1){
                     match1i = "~" + match1;
+                    e += match1i;
                 }
-                e += match1i;
+                else{
+                    e += match1;
+                }
             }
             if (y==1){
                 e += "||(";
@@ -369,10 +372,13 @@ function buildExpression(expression) {
                 }
                 while (match2===match);
                 let w = Math.floor(Math.random()*2);
-                if(w==1){
+                if(x==1){
                     match2i = "~" + match2;
+                    e += match2i;
                 }
-                e += match2i; 
+                else{
+                    e += match2;
+                }
             }
             if (y==2){
                 e += "&~(";
