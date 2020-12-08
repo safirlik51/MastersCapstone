@@ -638,6 +638,7 @@ function checkAnswer() {
         document.getElementById("resultText").hidden = false;
         document.getElementById("resultText").style.backgroundColor = "red";
         document.getElementById("resultText").innerHTML = "INCORRECT..."
+        document.getElementById("NewBTN").hidden = false;
         document.getElementById("ShowBTN").hidden = false;
     }
 }
@@ -653,6 +654,7 @@ function checkAnswerTruth() {
         document.getElementById("resultText").innerHTML = "CORRECT!"
         document.getElementById("NewBTN").hidden = false;
         document.getElementById("ShowBTN").hidden = true;
+        document.getElementById("SubmitBTN").hidden = true;
     }
     else{
         document.getElementById("resultText").hidden = false;
