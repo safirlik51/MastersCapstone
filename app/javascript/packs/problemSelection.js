@@ -289,6 +289,7 @@ function buildTruth() {
             let end = equation.indexOf(")", start);
             if (start != -1)
                 equation = equation.substring(0, start) + equation.substring(start + 1, end) + equation.substring(end + 1);
+
         }
         equation = equation.replace(/''/g, '');
         equation = equation.replace(/~0/g, '1');
@@ -504,6 +505,8 @@ function buildResults() {
         equation = equation.replace(/~1/g, '0');
         equation = equation.replace(/!0/g, '1');
         equation = equation.replace(/!1/g, '0');
+        equation = equation.replace(/0'/g, '1');
+        equation = equation.replace(/1'/g, '0');
         
         for (let i = 0; i < equation.length - 1; i++)
             if ((equation[i] == '0' || equation[i] == '1') && (equation[i + 1] == '0' || equation[i + 1] == '1'))
