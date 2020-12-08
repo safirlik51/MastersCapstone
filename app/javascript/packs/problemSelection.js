@@ -616,8 +616,18 @@ function getExpressionResult(){
     for(i=0;i<truthresult.length;i++){
         resultsCompare.push(truthresult[i].value);    
     }
-    resultsCompareFinal = tableAnswer.toString();
+    resultsCompareFinal = resultsCompare.toString();
     console.log("Results " + resultsCompareFinal);
+}
+
+function getBuildResults(){
+    buildCompare = [];
+    buildCompareFinal = "";
+    for(i=0;i<truth.length;i++){
+        buildCompare.push(truth[i].value);    
+    }
+    buildCompareFinal = buildCompare.toString();
+    console.log("Results " + buildCompareFinal);
 }
 
 function checkAnswer() {
