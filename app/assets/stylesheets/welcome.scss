@@ -9,6 +9,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+#mainButtons{
+    padding: 5px;
+}
 #mainArea{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -23,6 +26,9 @@ h1 {
 #mainDirections {
     text-align: center;
     color: white;
+}
+#truthresult{
+    text-align: center;
 }
 #equation {
     text-align: center;
