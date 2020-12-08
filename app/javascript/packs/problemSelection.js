@@ -337,7 +337,7 @@ function buildExpression(expression) {
 
         if (i==1 || i==3 || i==5){
             e += ")";
-            let y = Math.floor(Math.random()*4);
+            let y = Math.floor(Math.random()*2);
             if (y==0){
                 e += "&(";
                 let s = Math.floor(Math.random()*5);
@@ -349,6 +349,10 @@ function buildExpression(expression) {
                     match1 = String.fromCharCode(65+s);
                 }
                 while (match1===match);
+                let x = Math.floor(Math.random()*2);
+                if(x==1){
+                    match1 = "~" + match1;
+                }
                 e += match1;
             }
             if (y==1){
@@ -362,6 +366,10 @@ function buildExpression(expression) {
                     match2 = String.fromCharCode(65+t);
                 }
                 while (match2===match);
+                let w = Math.floor(Math.random()*2);
+                if(w==1){
+                    match2 = "~" + match2;
+                }
                 e += match2; 
             }
             if (y==2){
