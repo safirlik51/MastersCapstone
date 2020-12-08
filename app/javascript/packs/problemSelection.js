@@ -602,8 +602,8 @@ function getResult(result){
 function getResultTruth(result){
     tableAnswer = [];
     tableAnswerFinal = "";
-    for(i=0;i<truth.length;i++){
-        tableAnswer.push(truth[i].value);    
+    for(i=0;i<userInput.length;i++){
+        tableAnswer.push(userInput[i].value);    
     }
     tableAnswerFinal = tableAnswer.toString();
     console.log("TableAnswer " + tableAnswerFinal);
@@ -613,8 +613,8 @@ function getResultTruth(result){
 function getExpressionResult(){
     resultsCompare = [];
     resultsCompareFinal = "";
-    for(i=0;i<truthResult.length;i++){
-        resultsCompare.push(truthResult[i].value);    
+    for(i=0;i<truthresult.length;i++){
+        resultsCompare.push(truthresult[i].value);    
     }
     resultsCompareFinal = tableAnswer.toString();
     console.log("Results " + resultsCompareFinal);
