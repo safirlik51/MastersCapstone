@@ -57,7 +57,7 @@ function TruthToExpression() {
     callTruth = "";
     buildTruth();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
-    document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
+    document.getElementById("NewBTN").addEventListener("click", this);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
@@ -99,7 +99,7 @@ function ExpressionToTruth() {
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
-    document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
+    document.getElementById("NewBTN").addEventListener("click", this);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -141,7 +141,7 @@ function CircuitToTruth() {
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
-    document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
+    document.getElementById("NewBTN").addEventListener("click", this);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -168,7 +168,7 @@ function CircuitToExpression() {
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
-    document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
+    document.getElementById("NewBTN").addEventListener("click", this);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
