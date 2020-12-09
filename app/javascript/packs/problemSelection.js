@@ -18,6 +18,10 @@ let match3 = "";
 let match4 = "";
 let dropdown = false;
 let callTruth = false;
+let TE = false;
+let ET = false;
+let CE = false;
+let CT = false;
 document.getElementById("equation").hidden = true;
 document.getElementById("circuit").hidden = true;
 document.getElementById("TryAgainBTN").hidden = true;
@@ -37,6 +41,20 @@ document.getElementById("ExpressionToCircuitBTN").addEventListener("click", Expr
 document.getElementById("CircuitToTruthBTN").addEventListener("click", CircuitToTruth);
 document.getElementById("CircuitToExpressionBTN").addEventListener("click", CircuitToExpression);
 document.getElementById("RandomBTN").addEventListener("click", Random);
+document.getElementById("NewBTN").addEventListener("click", () => {
+    if(TE == true){
+        TruthToExpression();
+    }
+    if(ET == true){
+        ExpressionToTruth();
+    }
+    if(CT == true){
+        CircuitToTruth();
+    }
+    if(CE == true){
+        CircuitToExpression();
+    }
+});
 
 function TruthToExpression() {
     document.getElementById("problemDirections").innerHTML = "Enter the expression given the truth table below!" + "<br>" + "(AND = &&, OR = ||, NOT = ~)";
@@ -54,10 +72,14 @@ function TruthToExpression() {
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("AnswerField").value = "";
     dropdown = false;
+    TE = true;
+    ET = false;
+    CE = false;
+    CT = false;
     callTruth = "";
     buildTruth();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
-    document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
+    //document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
@@ -95,11 +117,15 @@ function ExpressionToTruth() {
     document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     dropdown = true;
+    TE = false;
+    ET = true;
+    CE = false;
+    CT = false;
     callTruth = "";
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
-    document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
+    //document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -136,12 +162,16 @@ function CircuitToTruth() {
     document.getElementById("ShowBTN").hidden = true;
     document.getElementById("NewBTN").hidden = true;
     dropdown = true;
+    TE = false;
+    ET = false;
+    CE = false;
+    CT = true;
     callTruth = "";
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
-    document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
+    //document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -163,12 +193,16 @@ function CircuitToExpression() {
     document.getElementById("NewBTN").hidden = true;
     document.getElementById("AnswerField").value = "";
     dropdown = false;
+    TE = false;
+    ET = false;
+    CE = true;
+    CT = false;
     callTruth = "";
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
-    document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
+    //document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
