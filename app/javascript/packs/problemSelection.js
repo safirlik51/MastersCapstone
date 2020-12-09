@@ -76,7 +76,7 @@ function TruthToExpression() {
     ET = false;
     CE = false;
     CT = false;
-    callTruth = "";
+    callTruth = false;
     buildTruth();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     //document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
@@ -121,7 +121,7 @@ function ExpressionToTruth() {
     ET = true;
     CE = false;
     CT = false;
-    callTruth = "";
+    callTruth = true;
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
@@ -166,7 +166,7 @@ function CircuitToTruth() {
     ET = false;
     CE = false;
     CT = true;
-    callTruth = "";
+    callTruth = true;
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
@@ -197,7 +197,7 @@ function CircuitToExpression() {
     ET = false;
     CE = true;
     CT = false;
-    callTruth = "";
+    callTruth = false;
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
@@ -656,7 +656,7 @@ function getResultTruth(result){
 }
 
 function checkAnswer() {
-    callTruth = false;
+    //callTruth = false;
     buildResults();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
@@ -678,7 +678,7 @@ function checkAnswer() {
 }
 
 function checkAnswerTruth() {
-    callTruth = true;
+    //callTruth = true;
     buildResults();
     console.log("TableAnswer " + tableAnswerFinal);
     console.log("Build " + buildCompareFinal)
