@@ -667,6 +667,8 @@ function checkAnswer() {
         document.getElementById("NewBTN").hidden = false;
         document.getElementById("ShowBTN").hidden = true;
         document.getElementById("AnswerField").value = "";
+        document.getElementById("SubmitBTN").hidden = true;
+        document.getElementById("AnswerField").hidden = true;
     }
     else{
         document.getElementById("resultText").hidden = false;
