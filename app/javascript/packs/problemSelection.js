@@ -77,9 +77,9 @@ function TruthToExpression() {
     CE = false;
     CT = false;
     callTruth = false;
+    tableAnswerFinal = "";
     buildTruth();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
-    //document.getElementById("NewBTN").addEventListener("click", TruthToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
@@ -122,10 +122,10 @@ function ExpressionToTruth() {
     CE = false;
     CT = false;
     callTruth = true;
+    resultsCompareFinal = "";
     buildTruth();
     document.getElementById("equation").innerHTML = e;
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
-    //document.getElementById("NewBTN").addEventListener("click", ExpressionToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -167,11 +167,11 @@ function CircuitToTruth() {
     CE = false;
     CT = true;
     callTruth = true;
+    resultsCompareFinal = "";
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswerTruth);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToTruth);
-    //document.getElementById("NewBTN").addEventListener("click", CircuitToTruth);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = false;
     });
@@ -198,11 +198,11 @@ function CircuitToExpression() {
     CE = true;
     CT = false;
     callTruth = false;
+    tableAnswerFinal = "";
     buildTruth();
     wolfram();
     document.getElementById("SubmitBTN").addEventListener("click", checkAnswer);
     document.getElementById("TryAgainBTN").addEventListener("click", CircuitToExpression);
-    //document.getElementById("NewBTN").addEventListener("click", CircuitToExpression);
     document.getElementById("ShowBTN").addEventListener("click", () => {
         document.getElementById("answer").hidden = true;
         document.getElementById("AnswerField").value = e;
@@ -342,9 +342,6 @@ function buildTruth() {
         try {
             let safeEval = eval;
             let answer = safeEval(equation);
-            //buildCompare.push(answer);
-            //buildCompareFinal = buildCompare.toString();
-            //console.log("Build " + buildCompareFinal);
             if (answer == 0)
                 return 0;
             if (answer > 0)
@@ -577,9 +574,6 @@ function buildResults() {
         try {
             let safeEval = eval;
             let answer = safeEval(equation);
-            //resultsCompare.push(answer);
-            //resultsCompareFinal = resultsCompare.toString();
-            //console.log("Results " + resultsCompareFinal);
             if (answer == 0)
                 return 0;
             if (answer > 0)
@@ -656,7 +650,6 @@ function getResultTruth(result){
 }
 
 function checkAnswer() {
-    //callTruth = false;
     buildResults();
     console.log("Answer " + resultsCompareFinal);
     console.log("Build " + buildCompareFinal)
@@ -680,7 +673,6 @@ function checkAnswer() {
 }
 
 function checkAnswerTruth() {
-    //callTruth = true;
     buildResults();
     console.log("TableAnswer " + tableAnswerFinal);
     console.log("Build " + buildCompareFinal)
